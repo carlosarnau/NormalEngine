@@ -13,9 +13,9 @@ ModuleEngineUI::ModuleEngineUI() : Module("editor_ui", true)
     EngineUI_RegisterItem((UI_Item*)new SceneView());
     EngineUI_RegisterItem((UI_Item*)new RenderPeekWindow());
     EngineUI_RegisterItem((UI_Item*)new ConfigWindow());
-    EngineUI_RegisterItem((UI_Item*)new DemoWindow());
     EngineUI_RegisterItem((UI_Item*)new EntityHierarchyWindow());
     EngineUI_RegisterItem((UI_Item*)new ComponentInspector());
+    //EngineUI_RegisterItem((UI_Item*)new DemoWindow());
 }
 
 ModuleEngineUI::~ModuleEngineUI()
@@ -128,6 +128,7 @@ bool ModuleEngineUI::CleanUp()
         delete it;
         it = nullptr;
     }
+
     items.clear();
     menu_bar->CleanUp();
     delete menu_bar;

@@ -28,6 +28,7 @@ void MenuBar::Update()
     ImGui::BeginMainMenuBar();
 
     // Should a main menu register and be a class/struct by itself or should it be standalone
+    /*
     if (ImGui::BeginMenu("Menu1"))
     {
         ImGui::EndMenu();
@@ -37,7 +38,7 @@ void MenuBar::Update()
     {
         ImGui::EndMenu();
     }
-
+    */
     if (ImGui::BeginMenu("UI WIndows"))
     {
         for (uint16_t i = 0; i < base_items.size(); ++i)

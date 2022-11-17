@@ -27,6 +27,7 @@ public:
     std::vector<MenuItem> variable_ui;
 
     bool registerable = false;
+    bool activateAbout = false;
     MenuBar() : UI_Item("Mvsvdar") { active = true; };
 
     void Init() final;
@@ -39,4 +40,6 @@ public:
     void CleanUp() final {}
 
     uint32_t RegisterMenuItem(bool* item_active, const char* name, const char* submenu = "");
+
+    update_status MenuBar::Exit();
 };

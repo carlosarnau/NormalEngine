@@ -2,7 +2,6 @@
 #include <src/Application.h>
 #include <glew/include/GL/glew.h>
 
-
 void RenderPeekWindow::Start()
 {
 }

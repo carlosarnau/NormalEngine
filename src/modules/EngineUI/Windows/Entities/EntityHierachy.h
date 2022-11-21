@@ -5,12 +5,12 @@
 #include "../Inspector/ComponentInspector.h"
 
 
-struct EntityHierarchyWindow : public UI_Item {
-	EntityHierarchyWindow() : UI_Item("Enity Hierarchy") {
+struct HierarchyWindow : public UI_Item {
+	HierarchyWindow() : UI_Item("Hierarchy") {
 		rm_menu.flags = ImGuiHoveredFlags_ChildWindows || ImGuiHoveredFlags_RootWindow;
 		rm_menu.container_name = name.c_str();
 	};
-	~EntityHierarchyWindow() {};
+	~HierarchyWindow() {};
 
 	void Start();
 	void Update();
@@ -18,7 +18,7 @@ struct EntityHierarchyWindow : public UI_Item {
 	RMPopupMenu rm_menu;
 	void UpdateRMMenu();
 
-	ComponentInspector* inspector = nullptr;
+	CameraWindow* inspector = nullptr;
 
 	std::vector<uint64_t> selected;
 	bool IsSelected(uint64_t eid) { for (auto v : selected) if (eid == v) return true; return false; }

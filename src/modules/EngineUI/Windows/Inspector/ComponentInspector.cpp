@@ -1,21 +1,19 @@
 #include "ComponentInspector.h"
 #include <src/Application.h>
 
-void ComponentInspector::UpdateRMMenu() {
+void CameraWindow::UpdateRMMenu() {
 	rm_menu.CheckToOpen();
 	if (ImGui::BeginPopup(rm_menu.container_name)) {
-		if (ImGui::MenuItem("Add Transform")) {
-
-		}
-		if (ImGui::MenuItem("Add Mesh")) {
-
-		}
+		if (ImGui::MenuItem("Add Transform")) {}
+		if (ImGui::MenuItem("Add Mesh")) {}
 	}
 }
 
-void ComponentInspector::Update() {
+void CameraWindow::Update() {
 	bool changes_happened = false;
 	ImGui::Begin(name.c_str(), &active);
+
+	/*
 	if (entity == nullptr) { ImGui::End(); return; }
 
 	changes_happened |= ImGui::Checkbox("##ActiveEntityCheckbox", &entity->active);
@@ -32,6 +30,9 @@ void ComponentInspector::Update() {
 		sprintf(button_id, "Delete##Button%llu", c->id.id);
 		ImGui::Button(button_id);
 	}
+	*/ //Not needed
+
+	// Aquí en principi hi ha d'haver totes les opcions
 
 	ImGui::End();
 }

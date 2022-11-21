@@ -7,16 +7,16 @@
 #include "MenuBar/MenuBar.h"
 #include "Windows/WindowsIncludeAll.h"
 
+
 ModuleEngineUI::ModuleEngineUI() : Module("editor_ui", true)
 {
     menu_bar = new MenuBar();
     EngineUI_RegisterItem((UI_Item*)new SceneView());
-    EngineUI_RegisterItem((UI_Item*)new RenderPeekWindow());
     EngineUI_RegisterItem((UI_Item*)new ConfigWindow());
-    EngineUI_RegisterItem((UI_Item*)new EntityHierarchyWindow());
-    EngineUI_RegisterItem((UI_Item*)new ComponentInspector());
-    EngineUI_RegisterItem((UI_Item*)new ComponentInspector());
-    //EngineUI_RegisterItem((UI_Item*)new DemoWindow());
+    EngineUI_RegisterItem((UI_Item*)new HierarchyWindow());             // Hierarchy inspector
+    EngineUI_RegisterItem((UI_Item*)new RenderPeekWindow());            // Mesh and Texture inspector
+    EngineUI_RegisterItem((UI_Item*)new CameraWindow());                // Camera inspector
+    //EngineUI_RegisterItem((UI_Item*)new DemoWindow());                // We don't want demo window
 }
 
 ModuleEngineUI::~ModuleEngineUI()
@@ -28,10 +28,10 @@ void StartImGUI(Application* App) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
-    //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;               // Enable Keyboard Controls
+    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;              // Enable Gamepad Controls
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;                   // Enable Docking
+    //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;               // Enable Multi-Viewport / Platform Windows
     //io.ConfigViewportsNoAutoMerge = true;
     //io.ConfigViewportsNoTaskBarIcon = true;
 

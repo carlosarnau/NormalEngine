@@ -2,11 +2,11 @@
 #include <src/Application.h>
 #include <src/modules/ECS/ModuleECS.h>
 
-void EntityHierarchyWindow::Start() {
-    inspector = (ComponentInspector*)App->engine_ui->GetItem("Inspector");
+void HierarchyWindow::Start() {
+    inspector = (CameraWindow*)App->engine_ui->GetItem("Camera");
 }
 
-void EntityHierarchyWindow::UpdateRMMenu() {
+void HierarchyWindow::UpdateRMMenu() {
     rm_menu.CheckToOpen();
     if (ImGui::BeginPopup(rm_menu.container_name))
     {
@@ -33,7 +33,7 @@ void EntityHierarchyWindow::UpdateRMMenu() {
 
 static ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanFullWidth;
 
-void EntityHierarchyWindow::UpdateEntry(Entity* curr_e) {
+void HierarchyWindow::UpdateEntry(Entity* curr_e) {
     bool isselected = IsSelected(curr_e->id);
     ImGuiTreeNodeFlags tmp_flags = node_flags
         | ((curr_e->children.size() == 0) * ImGuiTreeNodeFlags_Leaf)
@@ -61,7 +61,7 @@ void EntityHierarchyWindow::UpdateEntry(Entity* curr_e) {
     if (open) ImGui::TreePop();
 }
 
-void EntityHierarchyWindow::Update() {
+void HierarchyWindow::Update() {
 	
 	ImGui::Begin(name.c_str(), &active);
     if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(0) && !CheckModifiers()) {

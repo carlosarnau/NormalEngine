@@ -5,9 +5,9 @@
 
 class RenderPeekWindow : UI_Item {
 public:
-	RenderPeekWindow() : UI_Item("PeekRenderData") {};
-	void Start();
+	RenderPeekWindow() : UI_Item("Render Data") {};
 
+	void Start();
 	void Update();
 
 private:

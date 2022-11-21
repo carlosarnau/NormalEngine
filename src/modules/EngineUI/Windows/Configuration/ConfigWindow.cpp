@@ -15,6 +15,8 @@ double delta_ticks;
 std::vector<float> ticks;
 int max_ticks = 60;
 float fps;
+
+// Performance graphs
 void ConfigWindow::PerformanceGraphs()
 {
 	curr_ticks = SDL_GetTicks64();
@@ -41,6 +43,7 @@ int l_w, l_h;
 double brightness;
 bool fullscreen, resizable, borderless, full_desktop;
 
+// Window options
 void ConfigWindow::WindowOptions()
 {
 	bool ret = false;
@@ -54,8 +57,6 @@ void ConfigWindow::WindowOptions()
 }
 
 
-
-
 #include "windows.h"
 #include "psapi.h"
 
@@ -66,6 +67,7 @@ int num_cpus;
 std::string gpu, gpu_brand;
 std::vector<const char*> instructionsets;
 
+// Hardware information
 void ConfigWindow::HardwareInfo()
 {
 	ImGui::Text("CPU Cores: "); ImGui::SameLine(); ImGui::TextColored(hw_color, "%i", num_cpus);
@@ -91,53 +93,63 @@ void ConfigWindow::HardwareInfo()
 }
 
 
-
 #include <gl/GL.h>
 OpenGLState state;
 int curr_src_blend = 0;
 int curr_dst_blend = 0;
+
 const char* blend_strings[] = {
 	"0", "1", "SRC_COLOR", "1 - SRC_COLOR",
 	"DST_COLOR", "1 - DST_COLOR", "SRC_ALPHA",
 	"1 - SRC_ALPHA", "DST_ALPHA", "1 - DST_ALPHA",
 	"ALPHA_SATURATE"
 };
+
 uint32_t blend_vals[] = {
 	GL_ZERO, GL_ONE, GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR,
 	GL_DST_COLOR, GL_ONE_MINUS_DST_COLOR, GL_SRC_ALPHA,
 	GL_ONE_MINUS_SRC_ALPHA, GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA,
 	GL_SRC_ALPHA_SATURATE,
 };
+
 constexpr int blend_arrsize = sizeof(blend_vals) / sizeof(uint32_t);
 
 const char* polymode_strings[] = {
 	"FRONT AND BACK", "FRONT"
 };
+
 uint32_t polymode_vals[] = {
 	GL_FRONT_AND_BACK, GL_FRONT_FACE
 };
+
 constexpr int polymode_arrsize = sizeof(polymode_vals) / sizeof(uint32_t);
 int curr_polymode = 0;
 
 const char* polyfill_strings[] = {
 	"FILL", "LINES", "POINTS",
 };
+
 uint32_t polyfill_vals[] = {
 	GL_FILL, GL_LINE, GL_POINT,
 };
+
 constexpr int polyfill_arrsize = sizeof(polyfill_vals) / sizeof(uint32_t);
 int curr_polyfill = 0;
 
 #include <src/modules/Render/Primitives/Primitives.h>
 
 bool render_primitives = false;
+
 const char* primitive_strs[] = {
 	"Direct Draw Triangle", "Direct Draw Cube", "DD Cube Index example", "DD Cube Loop Index",
 	"Vertex Array Cube", "Indexed Tetrahedron", "Indexed DiskSphere"
 };
+
 int curr_primitive = 0;
 
 constexpr int primitive_arrsize = sizeof(primitive_strs) / sizeof(char*);
+
+// Render options
 void ConfigWindow::RenderOptions()
 {
 	bool ret = false;
@@ -166,7 +178,6 @@ void ConfigWindow::RenderOptions()
 		state.poly_mode = polymode_vals[curr_polymode];
 		state.poly_fill = polyfill_vals[curr_polyfill];
 		
-
 		App->renderer3D->default_state = state;
 	}
 
@@ -206,7 +217,6 @@ void ConfigWindow::Start() {
 	full_desktop = App->window->full_desktop;
 	borderless = App->window->borderless;
 	resizable = App->window->resizable;
-
 
 	// Renderer Options
 	state = App->renderer3D->default_state;

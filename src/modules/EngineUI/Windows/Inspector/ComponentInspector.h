@@ -4,15 +4,14 @@
 #include "../../ModuleEngineUI.h"
 #include <src/modules/ECS/ModuleECS.h>
 
-struct ComponentInspector : UI_Item {
+struct CameraWindow : UI_Item {
 	std::string entity_id_str;
 	Entity* entity = nullptr;
 
-	ComponentInspector() : UI_Item("Inspector") {};
+	CameraWindow() : UI_Item("Camera") {};
 
 	RMPopupMenu rm_menu;
-	void UpdateRMMenu();
 
+	void UpdateRMMenu();
 	void Update();
-	
 };

@@ -23,5 +23,6 @@ struct HierarchyWindow : public UI_Item {
 	std::vector<uint64_t> selected;
 	bool IsSelected(uint64_t eid) { for (auto v : selected) if (eid == v) return true; return false; }
 	void UpdateEntry(Entity* entity);
+	//dsdsd
 
 };

@@ -1,4 +1,4 @@
-![](normalengine.jpg) <br />
+![](normalengine-logo.jpg) <br />
 
 <br>
 
@@ -66,8 +66,8 @@ Camera controls:
 
 
 ## Developers
--Carlos Javier Arnau Montoriol [carlosarnau](https://github.com/carlosarnau) <br />
--Pol Farreras Olivera [fakefarreraspol](https://github.com/fakefarreraspol) <br />
+- Carlos Javier Arnau Montoriol [carlosarnau](https://github.com/carlosarnau) <br />
+- Pol Farreras Olivera [fakefarreraspol](https://github.com/fakefarreraspol) <br />
 
 <br>
 

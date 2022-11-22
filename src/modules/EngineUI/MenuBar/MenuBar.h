@@ -39,9 +39,6 @@ public:
     void MenuBar::SaveFile();
     void MenuBar::LoadScene();
     void MenuBar::ImportFile();
-    update_status MenuBar::Stop();
 
     uint32_t RegisterMenuItem(bool* item_active, const char* name, const char* submenu = "");
-
-    update_status MenuBar::Exit();
 };

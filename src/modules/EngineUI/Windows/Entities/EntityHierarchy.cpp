@@ -64,6 +64,7 @@ void HierarchyWindow::UpdateEntry(Entity* curr_e) {
 void HierarchyWindow::Update() {
 	
 	ImGui::Begin(name.c_str(), &active);
+    /*
     if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(0) && !CheckModifiers()) {
         selected.clear();
         if (inspector != nullptr) inspector->entity = nullptr;
@@ -72,6 +73,10 @@ void HierarchyWindow::Update() {
     UpdateEntry(&App->ecs->root);
 
     UpdateRMMenu();
+    */
 
+    if (ImGui::MenuItem("Save"))
+    {
+    }
 	ImGui::End();
 }

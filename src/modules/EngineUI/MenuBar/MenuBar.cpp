@@ -66,7 +66,7 @@ void MenuBar::Update()
         }
         if (ImGui::MenuItem("Exit"))
         {
-       
+            // return UPDATE_STOP;
         }
         
         ImGui::EndMenu();
@@ -189,11 +189,6 @@ uint32_t MenuBar::RegisterMenuItem(bool* item_active, const char* name, const ch
     // TODO: Find submenu and plop it there, or create it
     return ret;
 };
-
-update_status MenuBar::Exit()
-{
-    return UPDATE_STOP;
-}
 
 void MenuBar::SaveFile()
 {

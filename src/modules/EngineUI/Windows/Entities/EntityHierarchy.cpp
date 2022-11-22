@@ -75,8 +75,50 @@ void HierarchyWindow::Update() {
     UpdateRMMenu();
     */
 
-    if (ImGui::MenuItem("Save"))
+    ImGui::SetCursorPos(ImVec2(15, 32));
+    ImGui::Text("GameObject Hierarchy options:");
+    ImGui::SetCursorPos(ImVec2(15, 57));
+    ImGui::Separator();
+
+    // GameObject delete
+    ImGui::SetCursorPos(ImVec2(15, 75));
+    if (ImGui::Button("Delete", ImVec2(200, 20)))
     {
     }
+    if (ImGui::IsItemHovered()) {
+        ImGui::SameLine(); 
+        ImGui::Text(" GameObject will be deleted");
+    }
+
+    // GameObject reparent
+    ImGui::SetCursorPos(ImVec2(15, 100));
+    if (ImGui::Button("Reparent", ImVec2(200, 20)))
+    {
+    }
+    if (ImGui::IsItemHovered()) {
+        ImGui::SameLine();
+        ImGui::Text(" You will reparent GameObject");
+    }
+
+    // GameObject empty creation
+    ImGui::SetCursorPos(ImVec2(15, 125));
+    if (ImGui::Button("Create Empty", ImVec2(200, 20)))
+    {
+    }
+    if (ImGui::IsItemHovered()) {
+        ImGui::SameLine();
+        ImGui::Text(" You will create an empty GameObject");
+    }
+
+    // GameObject children creation
+    ImGui::SetCursorPos(ImVec2(15, 150));
+    if (ImGui::Button("Create Children", ImVec2(200,20)))
+    {
+    }
+    if (ImGui::IsItemHovered()) {
+        ImGui::SameLine();
+        ImGui::Text(" A children of GameObject will be created");
+    }
+
 	ImGui::End();
 }

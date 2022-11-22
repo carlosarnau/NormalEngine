@@ -10,6 +10,11 @@ void RenderPeekWindow::Update()
 {
 	ImGui::Begin(name.c_str(), &active);
 	
+	ImGui::SetCursorPos(ImVec2(15, 32));
+	ImGui::Text("Render atribbutes:");
+	ImGui::SetCursorPos(ImVec2(15, 57));
+	ImGui::Separator();
+
 	if (ImGui::CollapsingHeader("Meshes")) {
 
 	}

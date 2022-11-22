@@ -34,5 +34,10 @@ void CameraWindow::Update() {
 
 	// Aquí en principi hi ha d'haver totes les opcions
 
+	ImGui::SetCursorPos(ImVec2(15, 32));
+	ImGui::Text("Camera settings:");
+	ImGui::SetCursorPos(ImVec2(15, 57));
+	ImGui::Separator();
+
 	ImGui::End();
 }

@@ -1,4 +1,5 @@
 #include "MenuBar.h"
+#include "src/helpers/Globals.h"
 
 void MenuBar::Init()
 {
@@ -42,14 +43,20 @@ void MenuBar::Update()
 
     if (ImGui::BeginMenu("Menu"))
     {
-        if (ImGui::MenuItem("Save Scene", "CTRL+S")) 
+        if (ImGui::MenuItem("Save", "CTRL+S"))
         {
+        }
+        if (ImGui::MenuItem("Save As", "CTRL+S")) 
+        {
+            SaveFile();
         }
         if (ImGui::MenuItem("Load Scene", "CTRL+L")) 
         {
+            LoadScene();
         }
         if (ImGui::MenuItem("Import", "CTRL+I"))
         {
+            ImportFile();
         }
         if (ImGui::MenuItem("Show/Hide Windows", "CTRL+V"))
         {
@@ -59,6 +66,7 @@ void MenuBar::Update()
         }
         if (ImGui::MenuItem("Exit"))
         {
+       
         }
         
         ImGui::EndMenu();
@@ -66,7 +74,7 @@ void MenuBar::Update()
 
     if (ImGui::BeginMenu("Tools"))
     {
-        for (uint16_t i = 0; i < 5; ++i)
+        for (uint16_t i = 0; i < 6; ++i)
         {
             UpdateMenuItem(items[base_items[i]]);
         }
@@ -185,4 +193,65 @@ uint32_t MenuBar::RegisterMenuItem(bool* item_active, const char* name, const ch
 update_status MenuBar::Exit()
 {
     return UPDATE_STOP;
+}
+
+void MenuBar::SaveFile()
+{
+    OPENFILENAME ofn;
+    char fileName[MAX_PATH] = "";
+    ZeroMemory(&ofn, sizeof(ofn));
+    ofn.lStructSize = sizeof(OPENFILENAME);
+    ofn.hwndOwner = NULL;
+    ofn.lpstrFilter = " (*.drnk*)\0*.drnk*\0";
+    ofn.lpstrFile = fileName;
+    ofn.nMaxFile = MAX_PATH;
+    ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOCHANGEDIR;
+    ofn.lpstrDefExt = "";
+
+    GetSaveFileName(&ofn);
+    if (fileName[0] != '\0')
+        //App->scene->SaveScene(&fileName[0]);
+
+    SetInactive();
+}
+
+void MenuBar::LoadScene()
+{
+    OPENFILENAME ofn;
+    char fileName[MAX_PATH] = "";
+    ZeroMemory(&ofn, sizeof(ofn));
+    ofn.lStructSize = sizeof(OPENFILENAME);
+    ofn.hwndOwner = NULL;
+    ofn.lpstrFilter = " (*.drnk*)\0*.drnk*\0";
+    ofn.lpstrFile = fileName;
+    ofn.nMaxFile = MAX_PATH;
+    ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOCHANGEDIR;
+    ofn.lpstrDefExt = "";
+
+    GetOpenFileName(&ofn);
+    if (fileName[0] != '\0')
+        //App->scene->LoadSceneFile(fileName);
+
+    SetInactive();
+}
+
+void MenuBar::ImportFile()
+{
+
+    OPENFILENAME ofn;
+    char fileName[MAX_PATH] = "";
+    ZeroMemory(&ofn, sizeof(ofn));
+    ofn.lStructSize = sizeof(OPENFILENAME);
+    ofn.hwndOwner = NULL;
+    ofn.lpstrFilter = "All Files (*.*)\0*.*\0";
+    ofn.lpstrFile = fileName;
+    ofn.nMaxFile = MAX_PATH;
+    ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOCHANGEDIR;
+    ofn.lpstrDefExt = "";
+
+    GetOpenFileName(&ofn);
+    if (fileName[0] != '\0')
+        //App->importer->LoadFile(fileName);
+
+    SetInactive();
 }

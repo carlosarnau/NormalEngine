@@ -74,5 +74,4 @@ void HierarchyWindow::Update() {
     UpdateRMMenu();
 
 	ImGui::End();
-
 }

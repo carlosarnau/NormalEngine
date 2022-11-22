@@ -73,6 +73,9 @@
     <Filter Include="Sources\Modules\UI\imgui\Hierarchy">
       <UniqueIdentifier>{cf25539c-e34a-4f96-b291-2faaae8dbc61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Modules\UI\imgui\Transform">
+      <UniqueIdentifier>{3c69f5d1-00ac-4fdd-a761-77aec91ae683}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp">
@@ -317,6 +320,9 @@
     </ClCompile>
     <ClCompile Include="src\modules\EngineUI\Windows\Entities\EntityHierarchy.cpp">
       <Filter>Sources\Modules\UI\imgui\Hierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\Windows\Transform\TransformWindow.cpp">
+      <Filter>Sources\Modules\UI\imgui\Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -685,6 +691,9 @@
     </ClInclude>
     <ClInclude Include="src\modules\EngineUI\Windows\Entities\EntityHierachy.h">
       <Filter>Sources\Modules\UI\imgui\Hierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\Windows\Transform\TransformWindow.h">
+      <Filter>Sources\Modules\UI\imgui\Transform</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -27,7 +27,7 @@ void RenderPeekWindow::Update()
 		}
 	}
 	extern GLuint checkers_textureID;
-	ImGui::Image((ImTextureID)checkers_textureID, ImVec2(400,400));
+	// ImGui::Image((ImTextureID)checkers_textureID, ImVec2(400,400));
 
 	ImGui::End();
 }

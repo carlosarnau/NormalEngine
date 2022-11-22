@@ -79,6 +79,7 @@
     <ClCompile Include="src\modules\EngineUI\Windows\Entities\EntityHierarchy.cpp" />
     <ClCompile Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.cpp" />
     <ClCompile Include="src\modules\EngineUI\Windows\RenderTypePeek\RenderTypePeekWindow.cpp" />
+    <ClCompile Include="src\modules\EngineUI\Windows\Transform\TransformWindow.cpp" />
     <ClCompile Include="src\modules\EngineUI\Windows\View\SceneView.cpp" />
     <ClCompile Include="src\modules\FileSystem\Converters.cpp" />
     <ClCompile Include="src\modules\FileSystem\Converters\ConverterMesh.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="src\modules\EngineUI\Windows\Entities\EntityHierachy.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\RenderTypePeek\RenderTypePeekWindow.h" />
+    <ClInclude Include="src\modules\EngineUI\Windows\Transform\TransformWindow.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\View\SceneView.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\WindowsIncludeAll.h" />
     <ClInclude Include="src\modules\FileSystem\FSDataTypes.h" />

@@ -15,13 +15,38 @@ void TransformWindow::Update()
     ImGui::SetCursorPos(ImVec2(15, 57));
     ImGui::Separator();
 
-    // Translate
+	ImGui::Columns(2);
+	ImGui::SetColumnWidth(0, 150);
 
+	// Column I
+	//
+	// Position options
+	ImGui::SetCursorPos(ImVec2(15, 75));
+	ImGui::Text("Position");
 
-    // Rotate
+	//
+	// Rotation options
+	ImGui::SetCursorPos(ImVec2(15, 100));
+	ImGui::Text("Rotation");
 
+	//
+	// Scale options
+	ImGui::SetCursorPos(ImVec2(15, 125));
+	ImGui::Text("Scale");
 
-    // Scale
+	ImGui::NextColumn();
+
+	ImGui::SetCursorPos(ImVec2(235, 72));
+	static int vec3i[3] = { 0, 0, 0 };
+	ImGui::InputInt3(" ", vec3i);
+
+	ImGui::SetCursorPos(ImVec2(235, 97));
+	static int vec3j[3] = { 0, 0, 0 };
+	ImGui::InputInt3("  ", vec3j);
+
+	ImGui::SetCursorPos(ImVec2(235, 122));
+	static int vec3k[3] = { 0, 0, 0 };
+	ImGui::InputInt3("   ", vec3k);
 
 
 	ImGui::End();

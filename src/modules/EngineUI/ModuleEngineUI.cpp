@@ -17,7 +17,7 @@ ModuleEngineUI::ModuleEngineUI() : Module("editor_ui", true)
     EngineUI_RegisterItem((UI_Item*)new TransformWindow());
     EngineUI_RegisterItem((UI_Item*)new RenderPeekWindow());            // Mesh and Texture inspector
     EngineUI_RegisterItem((UI_Item*)new CameraWindow());                // Camera inspector
-    //EngineUI_RegisterItem((UI_Item*)new DemoWindow());                // We don't want demo window
+    // EngineUI_RegisterItem((UI_Item*)new DemoWindow());                // We don't want demo window
 }
 
 ModuleEngineUI::~ModuleEngineUI()

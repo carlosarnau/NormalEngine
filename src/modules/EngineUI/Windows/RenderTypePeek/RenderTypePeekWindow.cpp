@@ -11,10 +11,11 @@ void RenderPeekWindow::Update()
 	ImGui::Begin(name.c_str(), &active);
 	
 	ImGui::SetCursorPos(ImVec2(15, 32));
-	ImGui::Text("Render atribbutes:");
+	ImGui::Text("Render attributes:");
 	ImGui::SetCursorPos(ImVec2(15, 57));
 	ImGui::Separator();
 
+	/*
 	if (ImGui::CollapsingHeader("Meshes")) {
 
 	}
@@ -33,6 +34,18 @@ void RenderPeekWindow::Update()
 	}
 	extern GLuint checkers_textureID;
 	// ImGui::Image((ImTextureID)checkers_textureID, ImVec2(400,400));
+	*/
+
+	ImGui::Columns(2);
+	ImGui::SetColumnWidth(0, 640);
+
+	ImGui::SetCursorPos(ImVec2(15, 75));
+	ImGui::Text("Textures");
+
+	ImGui::NextColumn();
+
+	ImGui::SetCursorPos(ImVec2(655, 75));
+	ImGui::Text("Meshes");
 
 	ImGui::End();
 }

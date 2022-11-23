@@ -14,4 +14,5 @@ struct CameraWindow : UI_Item {
 
 	void UpdateRMMenu();
 	void Update();
+	void CameraControler();
 };

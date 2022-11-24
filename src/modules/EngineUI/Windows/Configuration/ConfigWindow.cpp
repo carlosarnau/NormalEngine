@@ -46,15 +46,41 @@ bool fullscreen, resizable, borderless, full_desktop;
 // Window options
 void ConfigWindow::WindowOptions()
 {
+	bool screen_modified = false;
 	bool ret = false;
-	ImGui::Checkbox("Fullscreen", &App->window->fullscreen);
-	ImGui::Checkbox("Borderless", &App->window->borderless);
-	ImGui::Checkbox("Resizable", &App->window->resizable);
-	ImGui::Checkbox("Full Desktop", &App->window->full_desktop);
-	ImGui::SliderInt("Width", &App->window->w, 100, 1920);
-	ImGui::SliderInt("Height", &App->window->h, 100, 1080);
-}
+	int win_w, win_h;
+	SDL_GetWindowSize(App->window->window, &win_w, &win_h);
 
+	if (ImGui::Checkbox("Fullscreen", &App->window->fullscreen))
+	{
+		App->window->SetFullscreen(App->window->fullscreen);
+	}
+
+	if (ImGui::Checkbox("Borderless", &App->window->borderless))
+		App->window->SetBorderless();
+
+	if (ImGui::Checkbox("Resizable", &App->window->resizable))
+		App->window->SetResizable();
+
+	if (ImGui::Checkbox("Full Desktop", &App->window->full_desktop))
+	{
+		App->window->SetFullDesktop(App->window->full_desktop);
+		screen_modified = true;
+	}
+
+	if (ImGui::SliderFloat("Brightness", &App->window->brightness, 0.0f, 1.0f))
+		App->window->SetBrightness();
+
+	if (ImGui::SliderInt("Width", &win_w, 400, App->window->screen_size_w - 1) && !App->window->fullscreen && !App->window->full_desktop)
+	{
+		SDL_SetWindowSize(App->window->window, App->window->window_w, App->window->window_h);
+	}
+
+	if (ImGui::SliderInt("Height", &win_h, 400, App->window->screen_size_h - 1) && !App->window->fullscreen && !App->window->full_desktop)
+	{
+		SDL_SetWindowSize(App->window->window, App->window->window_w, App->window->window_h);
+	}
+}
 
 #include "windows.h"
 #include "psapi.h"
@@ -152,7 +178,7 @@ constexpr int primitive_arrsize = sizeof(primitive_strs) / sizeof(char*);
 void ConfigWindow::RenderOptions()
 {
 	bool ret = false;
-	ret |= ImGui::Checkbox("COLOR MATERIAL", &state.color_material);
+	ImGui::Checkbox("COLOR MATERIAL", &state.color_material);
 	ret |= ImGui::Checkbox("CULL FACES", &state.cull_faces);
 	ret |= ImGui::Checkbox("DEPTH TEST", &state.depth_test);
 	ret |= ImGui::Checkbox("TEXTURES", &state.texture2D);

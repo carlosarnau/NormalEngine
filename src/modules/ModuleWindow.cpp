@@ -36,22 +36,34 @@ bool ModuleWindow::Init()
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
 		SDL_GL_SetSwapInterval(0);
-		if(WIN_FULLSCREEN == true)
+
+		SDL_DisplayMode DM;
+		SDL_GetCurrentDisplayMode(0, &DM);
+		screen_size_w = DM.w;
+		screen_size_h = DM.h;
+
+		if (window_w == 0 || window_h == 0)
+		{
+			window_w = screen_size_w - 100;
+			window_h = screen_size_h - 100;
+		}
+
+		if(fullscreen == true)
 		{
 			flags |= SDL_WINDOW_FULLSCREEN;
 		}
 
-		if(WIN_RESIZABLE == true)
+		if(resizable == true)
 		{
 			flags |= SDL_WINDOW_RESIZABLE;
 		}
 
-		if(WIN_BORDERLESS == true)
+		if(borderless == true)
 		{
 			flags |= SDL_WINDOW_BORDERLESS;
 		}
 
-		if(WIN_FULLSCREEN_DESKTOP == true)
+		if(full_desktop == true)
 		{
 			flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 		}
@@ -78,6 +90,13 @@ bool ModuleWindow::CleanUp()
 {
 	PLOG("Destroying SDL window and quitting all SDL systems");
 
+	// Destroy Surface
+	if (screen_surface != NULL)
+	{
+		SDL_FreeSurface(screen_surface);
+		screen_surface = NULL;
+	}
+
 	//Destroy window
 	if(window != NULL)
 	{
@@ -94,6 +113,47 @@ void ModuleWindow::SetTitle(const char* title)
 	SDL_SetWindowTitle(window, title);
 }
 
+void ModuleWindow::SetFullscreen(const bool fullscreen)
+{
+	if (fullscreen)
+	{
+		SDL_GetWindowSize(window, &window_w, &window_h);
+		SDL_SetWindowSize(window, screen_size_w, screen_size_h);
+
+		SDL_SetWindowFullscreen(this->window, SDL_WINDOW_FULLSCREEN);
+	}
+
+	else
+	{
+		SDL_SetWindowFullscreen(this->window, 0);
+		SDL_SetWindowSize(window, window_w, window_h);
+	}
+}
+
+void ModuleWindow::SetResizable()
+{
+	SDL_SetWindowResizable(this->window, (SDL_bool)this->resizable);
+}
+
+void ModuleWindow::SetBorderless()
+{
+	SDL_SetWindowBordered(App->window->window, (SDL_bool)!this->borderless);
+}
+
+void ModuleWindow::SetFullDesktop(const bool full_desktop)
+{
+	if (full_desktop)
+		SDL_SetWindowFullscreen(this->window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+	else
+		SDL_SetWindowFullscreen(this->window, 0);
+}
+
+void ModuleWindow::SetBrightness()
+{
+	SDL_SetWindowBrightness(this->window, this->brightness);
+}
+
+/*
 void ModuleWindow::Save(JSON_Object* obj)
 {
 	json_object_set_boolean(obj, "fullscreen", fullscreen);
@@ -105,7 +165,6 @@ void ModuleWindow::Save(JSON_Object* obj)
 	json_object_set_string(obj, "title", SDL_GetWindowTitle(window));
 }
 
-
 void ModuleWindow::Load(JSON_Object* obj) {
 	fullscreen = json_object_get_boolean(obj, "fullscreen");
 	borderless = json_object_get_boolean(obj, "borderless");
@@ -115,3 +174,4 @@ void ModuleWindow::Load(JSON_Object* obj) {
 	h = json_object_get_number(obj, "height");
 	SDL_SetWindowTitle(window, json_object_get_string(obj, "title"));
 }
+*/

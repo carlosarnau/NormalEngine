@@ -47,11 +47,10 @@ bool fullscreen, resizable, borderless, full_desktop;
 void ConfigWindow::WindowOptions()
 {
 	bool ret = false;
-	ImGui::Checkbox("Fullscreen", &App->window->fullscreen); 
+	ImGui::Checkbox("Fullscreen", &App->window->fullscreen);
 	ImGui::Checkbox("Borderless", &App->window->borderless);
 	ImGui::Checkbox("Resizable", &App->window->resizable);
 	ImGui::Checkbox("Full Desktop", &App->window->full_desktop);
-
 	ImGui::SliderInt("Width", &App->window->w, 100, 1920);
 	ImGui::SliderInt("Height", &App->window->h, 100, 1080);
 }
@@ -227,3 +226,4 @@ void ConfigWindow::Start() {
 	for (int i = 0; polymode_vals[(curr_polymode = i)] != state.poly_mode; ++i);
 	for (int i = 0; polyfill_vals[(curr_polyfill = i)] != state.poly_fill; ++i);
 }
+

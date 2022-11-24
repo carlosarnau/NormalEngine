@@ -145,14 +145,16 @@ void CameraWindow::Update() {
 	ImGui::End();
 
 	// Action control
-	ImGui::Begin("Action controls");
+	ImGui::Begin("Action controls", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar);
+
+	ImGui::Text("Action controls");
 
 	// Start
 	if (ImGui::Button("Start", ImVec2(50, 20)))
 	{
 	}
 	if (ImGui::IsItemHovered()) {
-		ImGui::Text("The action will start");
+		ImGui::SetTooltip("The action will start");
 	}
 
 	ImGui::SameLine();
@@ -162,7 +164,7 @@ void CameraWindow::Update() {
 	{
 	}
 	if (ImGui::IsItemHovered()) {
-		ImGui::Text("You'll pause the action");
+		ImGui::SetTooltip("You'll pause the action");
 	}
 
 	ImGui::SameLine();
@@ -172,7 +174,7 @@ void CameraWindow::Update() {
 	{
 	}
 	if (ImGui::IsItemHovered()) {
-		ImGui::Text("You'll stop the action");
+		ImGui::SetTooltip("You'll stop the action");
 	}
 
 	ImGui::End();

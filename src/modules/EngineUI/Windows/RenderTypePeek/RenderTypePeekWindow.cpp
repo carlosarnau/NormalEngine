@@ -36,15 +36,18 @@ void RenderPeekWindow::Update()
 	// ImGui::Image((ImTextureID)checkers_textureID, ImVec2(400,400));
 	*/
 
+	int win_w, win_h;
+	SDL_GetWindowSize(App->window->window, &win_w, &win_h);
+
 	ImGui::Columns(2);
-	ImGui::SetColumnWidth(0, 640);
+	ImGui::SetColumnWidth(0, win_w / 2);
 
 	ImGui::SetCursorPos(ImVec2(15, 75));
 	ImGui::Text("Textures");
 
 	ImGui::NextColumn();
 
-	ImGui::SetCursorPos(ImVec2(655, 75));
+	ImGui::SetCursorPos(ImVec2( (win_w / 2) + 15, 75));
 	ImGui::Text("Meshes");
 
 	ImGui::End();

@@ -74,7 +74,7 @@ void MenuBar::Update()
 
     if (ImGui::BeginMenu("Tools"))
     {
-        for (uint16_t i = 0; i < 7; ++i)
+        for (uint16_t i = 0; i < 6; ++i)
         {
             UpdateMenuItem(items[base_items[i]]);
         }

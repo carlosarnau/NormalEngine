@@ -44,7 +44,7 @@ public:
 	int screen_size_h;
 
 	bool fullscreen = false;
-	bool resizable = false;
+	bool resizable = true;
 	bool borderless = false;
 	bool full_desktop = false;
 	float brightness = 1;

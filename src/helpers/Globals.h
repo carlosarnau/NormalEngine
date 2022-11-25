@@ -18,7 +18,6 @@ uint16_t FitString(char*& buf, const char* format, ...);
 const char* FileName(const char* path);
 
 #define CAP(n) ((n <= 0.0f) ? n=0.0f : (n >= 1.0f) ? n=1.0f : n=n)
-
 #define DEGTORAD 0.0174532925199432957f
 #define RADTODEG 57.295779513082320876f
 #define HAVE_M_PI
@@ -45,9 +44,9 @@ enum update_status
 #define TITLE "NormalEngine"
 
 // XMacros
-
 #define EXPAND_AS_ENUM(a,b) a,
 #define EXPAND_AS_VALUE(a,b) b,
+
 // In corner cases need more than 2 values, it is pushing a bit really but it should work
 #define X3_EXPAND_1(a,b,c) a,
 #define X3_EXPAND_2(a,b,c) b,

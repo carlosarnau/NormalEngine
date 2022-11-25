@@ -38,6 +38,9 @@ void StartImGUI(Application* App)
     io.FontDefault = io.Fonts->AddFontFromFileTTF("Assets/Fonts/Roboto/Roboto-Regular.ttf", 14.0f);
     ImGui::StyleColorsDark();
 
+    style.GrabRounding = 3.0f;
+    style.FrameRounding = 3.0f;
+
     //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;              // Enable Gamepad Controls
     //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;               // Enable Multi-Viewport / Platform Windows
     //io.ConfigViewportsNoAutoMerge = true;

@@ -74,7 +74,7 @@ void MenuBar::Update()
 
     if (ImGui::BeginMenu("Tools"))
     {
-        for (uint16_t i = 0; i < 6; ++i)
+        for (uint16_t i = 0; i < 7; ++i)
         {
             UpdateMenuItem(items[base_items[i]]);
         }
@@ -232,7 +232,6 @@ void MenuBar::LoadScene()
 
 void MenuBar::ImportFile()
 {
-
     OPENFILENAME ofn;
     char fileName[MAX_PATH] = "";
     ZeroMemory(&ofn, sizeof(ofn));

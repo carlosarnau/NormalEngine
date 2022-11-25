@@ -88,7 +88,6 @@
     <ClCompile Include="src\modules\FileSystem\ModuleFS.cpp" />
     <ClCompile Include="src\modules\ModuleCamera3D.cpp" />
     <ClCompile Include="src\modules\ModuleInput.cpp" />
-    <ClCompile Include="src\modules\Render\BrowserPanel.cpp" />
     <ClCompile Include="src\modules\Render\ModuleRenderer3D.cpp" />
     <ClCompile Include="src\modules\ModuleWindow.cpp" />
     <ClCompile Include="src\modules\Render\Primitives\BufferedPrimitives.cpp" />
@@ -215,7 +214,6 @@
     <ClInclude Include="src\modules\Module.h" />
     <ClInclude Include="src\modules\ModuleCamera3D.h" />
     <ClInclude Include="src\modules\ModuleInput.h" />
-    <ClInclude Include="src\modules\Render\BrowserPanel.h" />
     <ClInclude Include="src\modules\Render\ModuleRenderer3D.h" />
     <ClInclude Include="src\modules\ModuleWindow.h" />
     <ClInclude Include="src\modules\Render\Primitives\Primitives.h" />

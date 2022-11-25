@@ -20,7 +20,7 @@ public:
 	bool CleanUp();
 
 	bool GetEvent(SDL_Event* e);
-	
+
 	void EngineUI_RegisterItem(UI_Item* item);
 	void EngineUI_RequireUpdate(bool window_state)
 	{

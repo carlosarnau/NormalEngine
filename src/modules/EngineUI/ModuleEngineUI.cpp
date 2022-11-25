@@ -24,29 +24,35 @@ ModuleEngineUI::~ModuleEngineUI()
 {
 }
 
-void StartImGUI(Application* App) {
+void StartImGUI(Application* App) 
+{
     // Setup Dear ImGui context
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
+
     ImGuiIO& io = ImGui::GetIO(); (void)io;
+    ImGuiStyle& style = ImGui::GetStyle();
+
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;               // Enable Keyboard Controls
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;              // Enable Gamepad Controls
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;                   // Enable Docking
+    io.FontDefault = io.Fonts->AddFontFromFileTTF("Assets/Fonts/Roboto/Roboto-Regular.ttf", 14.0f);
+    ImGui::StyleColorsDark();
+
+    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;              // Enable Gamepad Controls
     //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;               // Enable Multi-Viewport / Platform Windows
     //io.ConfigViewportsNoAutoMerge = true;
     //io.ConfigViewportsNoTaskBarIcon = true;
-
-    // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
     //ImGui::StyleColorsLight();
+    // Setup Dear ImGui style
 
     // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
-    ImGuiStyle& style = ImGui::GetStyle();
     if (io.ConfigFlags)
     {
         style.WindowRounding = 0.0f;
         style.Colors[ImGuiCol_WindowBg].w = 1.0f;
     }
+
+    App->window->SetDarkThemeColors();
 
     // Setup Platform/Renderer backends
     ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->renderer3D->context);
@@ -102,6 +108,7 @@ update_status ModuleEngineUI::PostUpdate(float dt)
 
     // Rendering
     ImGui::Render();
+
     //glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
@@ -163,7 +170,8 @@ void ModuleEngineUI::EngineUI_RegisterItem(UI_Item* item)
     menu_bar->RegisterMenuItem(&item->active, item->name.c_str(), item->submenu.c_str());
 }
 
-void ModuleEngineUI::EngineUI_UpdateActives() {
+void ModuleEngineUI::EngineUI_UpdateActives() 
+{
     active_items.clear();
     uint32_t s = items.size();
     for (uint32_t i = 0; i < s; ++i)
@@ -173,7 +181,8 @@ void ModuleEngineUI::EngineUI_UpdateActives() {
     require_update = false;
 }
 
-bool CheckModifiers() {
+bool CheckModifiers() 
+{
     {
         return ImGui::IsKeyDown(SDL_SCANCODE_LCTRL)
             || ImGui::IsKeyDown(SDL_SCANCODE_LSHIFT)

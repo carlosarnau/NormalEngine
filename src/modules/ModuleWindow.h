@@ -25,6 +25,7 @@ public:
 	void SetBorderless();
 	void SetFullDesktop(const bool full_desktop);
 	void SetBrightness();
+	void SetDarkThemeColors();
 
 	/*
 	void Save(JSON_Object* obj);

@@ -67,7 +67,7 @@ void CameraWindow::Update() {
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f,0.2f,0.2f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
 	ImGui::SetCursorPos(ImVec2(130, 72));
-	ImGui::Button("x", ImVec2{ 19, 19 });
+	ImGui::Button("X", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
 	ImGui::SameLine();
@@ -81,7 +81,7 @@ void CameraWindow::Update() {
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.3f,0.8f,0.3f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
 	ImGui::SetCursorPos(ImVec2(197, 72));
-	ImGui::Button("y", ImVec2{ 19, 19 });
+	ImGui::Button("Y", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
 	ImGui::SameLine();
@@ -95,7 +95,7 @@ void CameraWindow::Update() {
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.35f, 0.9f, 1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
 	ImGui::SetCursorPos(ImVec2(264, 72));
-	ImGui::Button("z", ImVec2{ 19, 19 });
+	ImGui::Button("Z", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
 	// Rotation inputs
@@ -111,7 +111,7 @@ void CameraWindow::Update() {
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f,0.2f,0.2f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
 	ImGui::SetCursorPos(ImVec2(130, 97));
-	ImGui::Button("x", ImVec2{ 19, 19 });
+	ImGui::Button("X", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
 	ImGui::SameLine();
@@ -125,7 +125,7 @@ void CameraWindow::Update() {
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.3f,0.8f,0.3f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
 	ImGui::SetCursorPos(ImVec2(197, 97));
-	ImGui::Button("y", ImVec2{ 19, 19 });
+	ImGui::Button("Y", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
 	ImGui::SameLine();
@@ -139,7 +139,7 @@ void CameraWindow::Update() {
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.35f, 0.9f, 1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
 	ImGui::SetCursorPos(ImVec2(264, 97));
-	ImGui::Button("z", ImVec2{ 19, 19 });
+	ImGui::Button("Z", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 	
 	ImGui::End();
@@ -173,7 +173,8 @@ void CameraWindow::Update() {
 	if (ImGui::Button("Stop", ImVec2(50, 20)))
 	{
 	}
-	if (ImGui::IsItemHovered()) {
+	if (ImGui::IsItemHovered()) 
+	{
 		ImGui::SetTooltip("You'll stop the action");
 	}
 

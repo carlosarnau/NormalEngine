@@ -65,7 +65,6 @@ void ConfigWindow::WindowOptions()
 	if (ImGui::Checkbox("Full Desktop", &App->window->full_desktop))
 	{
 		App->window->SetFullDesktop(App->window->full_desktop);
-		screen_modified = true;
 	}
 
 	if (ImGui::SliderFloat("Brightness", &App->window->brightness, 0.0f, 1.0f))

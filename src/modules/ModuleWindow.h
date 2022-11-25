@@ -45,7 +45,7 @@ public:
 
 	bool fullscreen = false;
 	bool resizable = false;
-	bool borderless = true;
+	bool borderless = false;
 	bool full_desktop = false;
 	float brightness = 1;
 };

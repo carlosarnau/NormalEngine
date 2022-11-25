@@ -324,6 +324,9 @@
     <ClCompile Include="src\modules\EngineUI\Windows\Transform\TransformWindow.cpp">
       <Filter>Sources\Modules\UI\imgui\Transform</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\Render\BrowserPanel.cpp">
+      <Filter>Sources\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h">
@@ -694,6 +697,9 @@
     </ClInclude>
     <ClInclude Include="src\modules\EngineUI\Windows\Transform\TransformWindow.h">
       <Filter>Sources\Modules\UI\imgui\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\Render\BrowserPanel.h">
+      <Filter>Sources\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

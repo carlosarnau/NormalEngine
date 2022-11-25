@@ -9,32 +9,11 @@ void RenderPeekWindow::Start()
 void RenderPeekWindow::Update()
 {
 	ImGui::Begin(name.c_str(), &active);
-	
+
 	ImGui::SetCursorPos(ImVec2(15, 32));
 	ImGui::Text("Render attributes:");
 	ImGui::SetCursorPos(ImVec2(15, 57));
 	ImGui::Separator();
-
-	/*
-	if (ImGui::CollapsingHeader("Meshes")) {
-
-	}
-	if (ImGui::CollapsingHeader("Textures")) {
-		ImGui::SliderInt("Texture Show Width", &t_w, 0, 4000);
-		static int select_img = 0;
-		int num_images = App->renderer3D->textures.size();
-		if (num_images > 0) {
-			ImGui::SliderInt("##Select", &select_img, 0, num_images - 1);
-			const GPUTex& t = App->renderer3D->textures[select_img];
-			glEnable(GL_TEXTURE_2D);
-			int h = t.h / (t.w / (float)t_w), w = t_w;
-			ImGui::Image((ImTextureID)t.img_id, ImVec2(w, h));
-			PLOG("Error initializing OpenGL! %s\n", gluErrorString(glGetError()));
-		}
-	}
-	extern GLuint checkers_textureID;
-	// ImGui::Image((ImTextureID)checkers_textureID, ImVec2(400,400));
-	*/
 
 	int win_w, win_h;
 	SDL_GetWindowSize(App->window->window, &win_w, &win_h);
@@ -43,12 +22,33 @@ void RenderPeekWindow::Update()
 	ImGui::SetColumnWidth(0, win_w / 2);
 
 	ImGui::SetCursorPos(ImVec2(15, 75));
-	ImGui::Text("Textures");
+	ImGui::Text("Textures:");
+
+	// Here starts the file system for Textures
+	constexpr char* s1_AssetDirectory = "Assets/Textures";
+	int i = 100;
+	for (auto& p : std::filesystem::directory_iterator(s1_AssetDirectory))
+	{
+		std::string path = p.path().string();
+		ImGui::SetCursorPos(ImVec2(15, i));
+		ImGui::Text("%s", path.c_str());
+		i = i + 25;
+	}
 
 	ImGui::NextColumn();
 
 	ImGui::SetCursorPos(ImVec2( (win_w / 2) + 15, 75));
-	ImGui::Text("Meshes");
+	ImGui::Text("Meshes:");
+	// Here starts the file system for Textures
+	constexpr char* s2_AssetDirectory = "Assets/Meshes";
+	int j = 100;
+	for (auto& p : std::filesystem::directory_iterator(s2_AssetDirectory))
+	{
+		std::string path = p.path().string();
+		ImGui::SetCursorPos(ImVec2((win_w / 2) + 15, j));
+		ImGui::Text("%s", path.c_str());
+		j = j+25;
+	}
 
 	ImGui::End();
 }

@@ -11,27 +11,27 @@ void TransformWindow::Update()
 	ImGui::Begin("Transform", &active);
 
     ImGui::SetCursorPos(ImVec2(15, 32));
-    ImGui::Text("Transform object options:");
-    ImGui::SetCursorPos(ImVec2(15, 57));
+    ImGui::Text("Transform object options");
+    ImGui::SetCursorPos(ImVec2(15, 60));
     ImGui::Separator();
 
 	ImGui::Columns(2);
-	ImGui::SetColumnWidth(0, 79);
+	ImGui::SetColumnWidth(0, 74);
 
 	// Column I
 	//
 	// Position options
-	ImGui::SetCursorPos(ImVec2(15, 75));
+	ImGui::SetCursorPos(ImVec2(15, 78));
 	ImGui::Text("Position");
 
 	//
 	// Rotation options
-	ImGui::SetCursorPos(ImVec2(15, 100));
+	ImGui::SetCursorPos(ImVec2(15, 108));
 	ImGui::Text("Rotation");
 
 	//
 	// Scale options
-	ImGui::SetCursorPos(ImVec2(15, 125));
+	ImGui::SetCursorPos(ImVec2(15, 138));
 	ImGui::Text("Scale");
 
 	ImGui::NextColumn();
@@ -41,7 +41,7 @@ void TransformWindow::Update()
 	ImGui::PushItemWidth(40);
 
 	// First slider 1
-	ImGui::SetCursorPos(ImVec2(90, 72));
+	ImGui::SetCursorPos(ImVec2(90, 75));
 	static float x1 = 0.00f;
 	ImGui::DragFloat("##x", &x1, 0.00f);
 
@@ -49,7 +49,7 @@ void TransformWindow::Update()
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f,0.2f,0.2f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
-	ImGui::SetCursorPos(ImVec2(130, 72));
+	ImGui::SetCursorPos(ImVec2(130, 75));
 	ImGui::Button("X", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
@@ -63,7 +63,7 @@ void TransformWindow::Update()
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.3f,0.8f,0.3f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
-	ImGui::SetCursorPos(ImVec2(197, 72));
+	ImGui::SetCursorPos(ImVec2(197, 75));
 	ImGui::Button("Y", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
@@ -77,7 +77,7 @@ void TransformWindow::Update()
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.35f, 0.9f, 1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
-	ImGui::SetCursorPos(ImVec2(264, 72));
+	ImGui::SetCursorPos(ImVec2(264, 75));
 	ImGui::Button("Z", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
@@ -85,7 +85,7 @@ void TransformWindow::Update()
 	ImGui::PushItemWidth(40);
 
 	// First slider 1
-	ImGui::SetCursorPos(ImVec2(90, 97));
+	ImGui::SetCursorPos(ImVec2(90, 105));
 	static float x2 = 0.00f;
 	ImGui::DragFloat("##x", &x2, 0.00f);
 
@@ -93,7 +93,7 @@ void TransformWindow::Update()
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f,0.2f,0.2f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
-	ImGui::SetCursorPos(ImVec2(130, 97));
+	ImGui::SetCursorPos(ImVec2(130, 105));
 	ImGui::Button("X", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
@@ -107,7 +107,7 @@ void TransformWindow::Update()
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.3f,0.8f,0.3f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
-	ImGui::SetCursorPos(ImVec2(197, 97));
+	ImGui::SetCursorPos(ImVec2(197, 105));
 	ImGui::Button("Y", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
@@ -121,7 +121,7 @@ void TransformWindow::Update()
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.35f, 0.9f, 1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
-	ImGui::SetCursorPos(ImVec2(264, 97));
+	ImGui::SetCursorPos(ImVec2(264, 105));
 	ImGui::Button("Z", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
@@ -129,7 +129,7 @@ void TransformWindow::Update()
 	ImGui::PushItemWidth(40);
 
 	// First slider 1
-	ImGui::SetCursorPos(ImVec2(90, 122));
+	ImGui::SetCursorPos(ImVec2(90, 135));
 	static float x3 = 0.00f;
 	ImGui::DragFloat("##x", &x3, 0.00f);
 
@@ -137,7 +137,7 @@ void TransformWindow::Update()
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f,0.2f,0.2f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
-	ImGui::SetCursorPos(ImVec2(130, 122));
+	ImGui::SetCursorPos(ImVec2(130, 135));
 	ImGui::Button("X", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
@@ -151,7 +151,7 @@ void TransformWindow::Update()
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.3f,0.8f,0.3f,1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
-	ImGui::SetCursorPos(ImVec2(197, 122));
+	ImGui::SetCursorPos(ImVec2(197, 135));
 	ImGui::Button("Y", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 
@@ -165,7 +165,7 @@ void TransformWindow::Update()
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.35f, 0.9f, 1.0f });
 	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
-	ImGui::SetCursorPos(ImVec2(264, 122));
+	ImGui::SetCursorPos(ImVec2(264, 135));
 	ImGui::Button("Z", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
 

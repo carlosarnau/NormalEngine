@@ -76,49 +76,76 @@ void HierarchyWindow::Update() {
     */
 
     ImGui::SetCursorPos(ImVec2(15, 32));
-    ImGui::Text("GameObject Hierarchy options:");
-    ImGui::SetCursorPos(ImVec2(15, 57));
+    ImGui::Text("GameObject Hierarchy options");
+    ImGui::SetCursorPos(ImVec2(15, 60));
     ImGui::Separator();
 
+    ImGui::Columns(2);
+
+    //Column I
     // GameObject delete
-    ImGui::SetCursorPos(ImVec2(15, 75));
-    if (ImGui::Button("Delete", ImVec2(200, 20)))
-    {
-    }
+    ImGui::SetCursorPos(ImVec2(15, 78));
+    if (ImGui::Button("Delete..", ImVec2(200, 20)))
+        ImGui::OpenPopup("Delete");
     if (ImGui::IsItemHovered()) {
-        ImGui::SameLine(); 
-        ImGui::Text(" GameObject will be deleted");
+        ImGui::SameLine();
+        ImGui::Text("   GameObject will be deleted");
+    }
+
+    // Delete confirmation popup
+    ImVec2 center = ImGui::GetMainViewport()->GetCenter();
+    ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
+
+    if (ImGui::BeginPopupModal("Delete", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Are you sure you want to delete this item?\nThis operation cannot be undone!\n\n");
+        ImGui::Separator();
+
+        if (ImGui::Button("OK", ImVec2(120, 0))) { ImGui::CloseCurrentPopup(); }
+        ImGui::SetItemDefaultFocus();
+        ImGui::SameLine();
+        if (ImGui::Button("Cancel", ImVec2(120, 0))) { ImGui::CloseCurrentPopup(); }
+        ImGui::EndPopup();
     }
 
     // GameObject reparent
-    ImGui::SetCursorPos(ImVec2(15, 100));
+    ImGui::SetCursorPos(ImVec2(15, 108));
     if (ImGui::Button("Reparent", ImVec2(200, 20)))
     {
     }
     if (ImGui::IsItemHovered()) {
         ImGui::SameLine();
-        ImGui::Text(" You will reparent GameObject");
+        ImGui::Text("   You will reparent GameObject");
     }
 
     // GameObject empty creation
-    ImGui::SetCursorPos(ImVec2(15, 125));
+    ImGui::SetCursorPos(ImVec2(15, 138));
     if (ImGui::Button("Create Empty", ImVec2(200, 20)))
     {
     }
     if (ImGui::IsItemHovered()) {
         ImGui::SameLine();
-        ImGui::Text(" You will create an empty GameObject");
+        ImGui::Text("   You will create an empty GameObject");
     }
 
     // GameObject children creation
-    ImGui::SetCursorPos(ImVec2(15, 150));
+    ImGui::SetCursorPos(ImVec2(15, 168));
     if (ImGui::Button("Create Children", ImVec2(200,20)))
     {
     }
     if (ImGui::IsItemHovered()) {
         ImGui::SameLine();
-        ImGui::Text(" A children of GameObject will be created");
+        ImGui::Text("   A children of GameObject will be created");
     }
+
+    ImGui::NextColumn();
+    
+    int win_w, win_h;
+    SDL_GetWindowSize(App->window->window, &win_w, &win_h);
+
+    //Column I
+    ImGui::SetCursorPos(ImVec2((win_w / 2) + 15, 78));
+    ImGui::Text("GameObject properties:");
 
 	ImGui::End();
 }

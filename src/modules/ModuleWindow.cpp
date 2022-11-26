@@ -50,7 +50,7 @@ bool ModuleWindow::Init()
 
 		if(fullscreen == true)
 		{
-			flags |= SDL_WINDOW_FULLSCREEN;;
+			flags |= SDL_WINDOW_FULLSCREEN;
 		}
 
 		if(resizable == true)

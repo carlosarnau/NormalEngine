@@ -11,8 +11,8 @@ void RenderPeekWindow::Update()
 	ImGui::Begin(name.c_str(), &active);
 
 	ImGui::SetCursorPos(ImVec2(15, 32));
-	ImGui::Text("Game Assets:");
-	ImGui::SetCursorPos(ImVec2(15, 57));
+	ImGui::Text("Game Assets");
+	ImGui::SetCursorPos(ImVec2(15, 60));
 	ImGui::Separator();
 
 	int win_w, win_h;
@@ -20,7 +20,7 @@ void RenderPeekWindow::Update()
 
 	// Here starts the file system for Textures
 	constexpr char* s1_AssetDirectory = "Assets";
-	int i = 75;
+	int i = 78;
 	for (auto& p : std::filesystem::directory_iterator(s1_AssetDirectory))
 	{
 		std::string path = p.path().string();

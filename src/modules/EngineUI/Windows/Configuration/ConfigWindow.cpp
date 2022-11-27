@@ -102,7 +102,8 @@ void ConfigWindow::HardwareInfo()
 
 	ImGui::Text("System RAM: "); ImGui::SameLine(); ImGui::TextColored(hw_color, "%.3f GB (%.3f MB used)", ram/1024., (pmc.WorkingSetSize)/(float)(1024*1024));
 	ImGui::Text("Instruction Sets: ");
-	for (const char* str : instructionsets) {
+	for (const char* str : instructionsets) 
+	{
 		ImGui::SameLine();
 		ImGui::TextColored(hw_color, "%s", str);
 	}
@@ -115,7 +116,6 @@ void ConfigWindow::HardwareInfo()
 	ImGui::Text("GPU Model: "); ImGui::SameLine();
 	ImGui::TextColored(hw_color, "%s", gpu.c_str());
 }
-
 
 #include <gl/GL.h>
 OpenGLState state;
@@ -215,7 +215,8 @@ void ConfigWindow::RenderOptions()
 //================================================================
 // Start defined at the bottom as needs knowledge of used local variables
 
-void ConfigWindow::Start() {
+void ConfigWindow::Start()
+{
 	// Hardware Info
 	l1_cache = SDL_GetCPUCacheLineSize(); // Returns in KB not B
 	num_cpus = SDL_GetCPUCount();

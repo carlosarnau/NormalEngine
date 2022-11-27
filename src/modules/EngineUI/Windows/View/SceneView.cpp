@@ -2,12 +2,14 @@
 #include <src/Application.h>
 #include <glew/include/GL/glew.h>
 
-void SceneView::Start() {
+void SceneView::Start()
+{
 	fb.Create(App->window->w, App->window->h);
 	App->renderer3D->hijack_framebuffer = &fb;
 }
 
-void SceneView::Update() {
+void SceneView::Update()
+{
 	ImGui::Begin(name.c_str(), &active);
 	ImVec2 scenesize = { (float)fb.attachment.w, (float)fb.attachment.h };
 	float ww = ImGui::GetContentRegionAvail().x;
@@ -18,6 +20,7 @@ void SceneView::Update() {
 }
 
 
-void SceneView::CleanUp() {
+void SceneView::CleanUp()
+{
 	fb.Destroy();
 }

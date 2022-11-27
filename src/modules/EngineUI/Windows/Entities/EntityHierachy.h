@@ -2,7 +2,7 @@
 
 #include "../../ui_item.h"
 #include "../../ModuleEngineUI.h"
-#include "../Inspector/ComponentInspector.h"
+#include "../Inspector/CameraWindow.h"
 
 
 struct HierarchyWindow : public UI_Item {

@@ -2,11 +2,13 @@
 #include <src/Application.h>
 #include <src/modules/ECS/ModuleECS.h>
 
-void HierarchyWindow::Start() {
+void HierarchyWindow::Start() 
+{
     inspector = (CameraWindow*)App->engine_ui->GetItem("Camera");
 }
 
-void HierarchyWindow::UpdateRMMenu() {
+void HierarchyWindow::UpdateRMMenu() 
+{
     rm_menu.CheckToOpen();
     if (ImGui::BeginPopup(rm_menu.container_name))
     {
@@ -33,7 +35,8 @@ void HierarchyWindow::UpdateRMMenu() {
 
 static ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanFullWidth;
 
-void HierarchyWindow::UpdateEntry(Entity* curr_e) {
+void HierarchyWindow::UpdateEntry(Entity* curr_e) 
+{
     bool isselected = IsSelected(curr_e->id);
     ImGuiTreeNodeFlags tmp_flags = node_flags
         | ((curr_e->children.size() == 0) * ImGuiTreeNodeFlags_Leaf)
@@ -61,19 +64,9 @@ void HierarchyWindow::UpdateEntry(Entity* curr_e) {
     if (open) ImGui::TreePop();
 }
 
-void HierarchyWindow::Update() {
-	
+void HierarchyWindow::Update()
+{
 	ImGui::Begin(name.c_str(), &active);
-    /*
-    if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(0) && !CheckModifiers()) {
-        selected.clear();
-        if (inspector != nullptr) inspector->entity = nullptr;
-    }
-
-    UpdateEntry(&App->ecs->root);
-
-    UpdateRMMenu();
-    */
 
     ImGui::SetCursorPos(ImVec2(15, 32));
     ImGui::Text("GameObject Hierarchy options");

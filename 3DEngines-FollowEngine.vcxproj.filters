@@ -114,7 +114,7 @@
     <ClCompile Include="src\helpers\MathGeoLib\Time\Clock.cpp">
       <Filter>Sources\Tools\MathGeoLib\Time</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.cpp">
+    <ClCompile Include="src\modules\EngineUI\Windows\Inspector\CameraWindow.cpp">
       <Filter>Sources\Modules\GameObject Structure\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\modules\EngineUI\Windows\Configuration\ConfigWindow.cpp">
@@ -365,7 +365,7 @@
     <ClInclude Include="src\modules\ECS\ComponentIncludeAllTypes.h">
       <Filter>Sources\Modules\GameObject Structure\Components</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.h">
+    <ClInclude Include="src\modules\EngineUI\Windows\Inspector\CameraWindow.h">
       <Filter>Sources\Modules\GameObject Structure\Components</Filter>
     </ClInclude>
     <ClInclude Include="src\modules\ECS\ComponentsIncludeAll.h">

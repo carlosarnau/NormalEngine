@@ -13,7 +13,8 @@ public:
 	void HardwareInfo();
 	void RenderOptions();
 
-	void Update() {
+	void Update() 
+	{
 		ImGui::Begin(name.c_str(), &active);
 		
 		if(ImGui::CollapsingHeader("Performance")) PerformanceGraphs();

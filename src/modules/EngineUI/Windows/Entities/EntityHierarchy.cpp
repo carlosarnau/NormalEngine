@@ -9,28 +9,6 @@ void HierarchyWindow::Start()
 
 void HierarchyWindow::UpdateRMMenu() 
 {
-    rm_menu.CheckToOpen();
-    if (ImGui::BeginPopup(rm_menu.container_name))
-    {
-        if (ImGui::MenuItem("New Entity"))
-        {
-            for (int i = 0; i < selected.size(); ++i)
-                App->ecs->AddEntity(selected[i]);
-            if (selected.size() == 0)
-                App->ecs->AddEntity(UINT64_MAX);
-        }
-        for (int i = 0; i < selected.size(); ++i)
-            if (selected[i] == UINT64_MAX)
-                continue;
-        if (ImGui::MenuItem("Delete Selected"))
-        {
-            for (int i = 0; i < selected.size(); ++i)
-                App->ecs->DeleteEntity(selected[i]);
-
-            selected.clear();
-        }
-        ImGui::EndPopup();
-    }
 }
 
 static ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanFullWidth;
@@ -69,11 +47,9 @@ void HierarchyWindow::Update()
 	ImGui::Begin(name.c_str(), &active);
 
     ImGui::SetCursorPos(ImVec2(15, 32));
-    ImGui::Text("GameObject Hierarchy options");
+    ImGui::Text("GameObject options");
     ImGui::SetCursorPos(ImVec2(15, 60));
     ImGui::Separator();
-
-    ImGui::Columns(2);
 
     //Column I
     // GameObject delete
@@ -81,8 +57,7 @@ void HierarchyWindow::Update()
     if (ImGui::Button("Delete..", ImVec2(200, 20)))
         ImGui::OpenPopup("Delete");
     if (ImGui::IsItemHovered()) {
-        ImGui::SameLine();
-        ImGui::Text("   GameObject will be deleted");
+        ImGui::SetTooltip("GameObject will be deleted");
     }
 
     // Delete confirmation popup
@@ -107,8 +82,7 @@ void HierarchyWindow::Update()
     {
     }
     if (ImGui::IsItemHovered()) {
-        ImGui::SameLine();
-        ImGui::Text("   You will reparent GameObject");
+        ImGui::SetTooltip("You will reparent GameObject");
     }
 
     // GameObject empty creation
@@ -117,8 +91,7 @@ void HierarchyWindow::Update()
     {
     }
     if (ImGui::IsItemHovered()) {
-        ImGui::SameLine();
-        ImGui::Text("   You will create an empty GameObject");
+        ImGui::SetTooltip("You will create an empty GameObject");
     }
 
     // GameObject children creation
@@ -127,17 +100,11 @@ void HierarchyWindow::Update()
     {
     }
     if (ImGui::IsItemHovered()) {
-        ImGui::SameLine();
-        ImGui::Text("   A children of GameObject will be created");
+        ImGui::SetTooltip("A children of GameObject will be created");
     }
 
-    ImGui::NextColumn();
-    
-    int win_w, win_h;
-    SDL_GetWindowSize(App->window->window, &win_w, &win_h);
+    ImGui::Separator();
 
-    //Column I
-    ImGui::SetCursorPos(ImVec2((win_w / 2) + 15, 78));
     ImGui::Text("GameObject properties:");
 
 	ImGui::End();

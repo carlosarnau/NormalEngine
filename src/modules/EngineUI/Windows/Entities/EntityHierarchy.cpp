@@ -103,8 +103,10 @@ void HierarchyWindow::Update()
         ImGui::SetTooltip("A children of GameObject will be created");
     }
 
+    ImGui::SetCursorPos(ImVec2(15, 216));
     ImGui::Separator();
 
+    ImGui::SetCursorPos(ImVec2(15, 230));
     ImGui::Text("GameObject properties:");
 
 	ImGui::End();

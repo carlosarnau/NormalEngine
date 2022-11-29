@@ -17,6 +17,41 @@ void SceneView::Update()
 	scenesize.x = ww;
 	ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
 	ImGui::End();
+
+	// Action control
+	ImGui::Begin("Action Controls", nullptr, ImGuiWindowFlags_None);
+
+	ImGui::SetCursorPos(ImVec2(scenesize.x/2 - 60, 28));
+	// Start
+	if (ImGui::Button("Start", ImVec2(50, 20)))
+	{
+	}
+	if (ImGui::IsItemHovered()) {
+		ImGui::SetTooltip("The action will start");
+	}
+
+	ImGui::SameLine();
+
+	// Pause
+	if (ImGui::Button("Pause", ImVec2(50, 20)))
+	{
+	}
+	if (ImGui::IsItemHovered()) {
+		ImGui::SetTooltip("You'll pause the action");
+	}
+
+	ImGui::SameLine();
+
+	// Stop
+	if (ImGui::Button("Stop", ImVec2(50, 20)))
+	{
+	}
+	if (ImGui::IsItemHovered())
+	{
+		ImGui::SetTooltip("You'll stop the action");
+	}
+
+	ImGui::End();
 }
 
 

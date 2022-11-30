@@ -36,8 +36,10 @@ public:
 	//The window we'll be rendering to
 	SDL_Window* window;
 	int w = SCREEN_WIDTH * SCREEN_SIZE, h = SCREEN_HEIGHT * SCREEN_SIZE;
+
 	//The surface contained by the window
 	SDL_Surface* screen_surface;
+	SDL_Surface* icon;
 
 	int window_w;
 	int window_h;

@@ -12,6 +12,8 @@ uint32_t ExtensionToDevILType_Convert(const char* ext) {
 		ret = IL_TIF;
 	else if (strcmp(ext, ".tga") == 0 || strcmp(ext, ".TGA") == 0)
 		ret = IL_TGA;
+	else if (strcmp(ext, ".bmp") == 0 || strcmp(ext, ".BMP") == 0)
+		ret = IL_BMP;
 
 	return ret;
 }

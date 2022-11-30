@@ -2,7 +2,7 @@
 
 #include "../../ui_item.h"
 #include "../../ModuleEngineUI.h"
-#include "../Inspector/CameraWindow.h"
+#include "../Inspector/ComponentInspector.h"
 
 
 struct HierarchyWindow : public UI_Item {
@@ -18,7 +18,7 @@ struct HierarchyWindow : public UI_Item {
 	RMPopupMenu rm_menu;
 	void UpdateRMMenu();
 
-	CameraWindow* inspector = nullptr;
+	ComponentInspector* inspector = nullptr;
 
 	std::vector<uint64_t> selected;
 	bool IsSelected(uint64_t eid) { for (auto v : selected) if (eid == v) return true; return false; }

@@ -77,7 +77,7 @@
     <ClCompile Include="src\modules\EngineUI\ModuleEngineUI.cpp" />
     <ClCompile Include="src\modules\EngineUI\Windows\Configuration\ConfigWindow.cpp" />
     <ClCompile Include="src\modules\EngineUI\Windows\Entities\EntityHierarchy.cpp" />
-    <ClCompile Include="src\modules\EngineUI\Windows\Inspector\CameraWindow.cpp" />
+    <ClCompile Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.cpp" />
     <ClCompile Include="src\modules\EngineUI\Windows\RenderTypePeek\RenderTypePeekWindow.cpp" />
     <ClCompile Include="src\modules\EngineUI\Windows\Transform\TransformWindow.cpp" />
     <ClCompile Include="src\modules\EngineUI\Windows\View\SceneView.cpp" />
@@ -203,7 +203,7 @@
     <ClInclude Include="src\modules\EngineUI\Windows\Configuration\ConfigWindow.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\DemoWindow.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\Entities\EntityHierachy.h" />
-    <ClInclude Include="src\modules\EngineUI\Windows\Inspector\CameraWindow.h" />
+    <ClInclude Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\RenderTypePeek\RenderTypePeekWindow.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\Transform\TransformWindow.h" />
     <ClInclude Include="src\modules\EngineUI\Windows\View\SceneView.h" />

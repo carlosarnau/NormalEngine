@@ -139,7 +139,7 @@
     <ClCompile Include="src\helpers\MathGeoLib\Geometry\LineSegment2D.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\Windows\Inspector\CameraWindow.cpp">
+    <ClCompile Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.cpp">
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="src\helpers\log.cpp">
@@ -441,7 +441,7 @@
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\LineSegment2D.h">
       <Filter>External</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\Inspector\CameraWindow.h">
+    <ClInclude Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Math\MatrixProxy.h">

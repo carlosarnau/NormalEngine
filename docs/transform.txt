@@ -1,26 +1,13 @@
-#include "CameraWindow.h"
-#include <src/Application.h>
+	ImGui::Begin("Transform", &active);
 
-void CameraWindow::UpdateRMMenu() {
-	rm_menu.CheckToOpen();
-	if (ImGui::BeginPopup(rm_menu.container_name)) {
-		if (ImGui::MenuItem("Add Transform")) {}
-		if (ImGui::MenuItem("Add Mesh")) {}
-	}
-}
-
-void CameraWindow::Update() {
-	bool changes_happened = false;
-	ImGui::Begin(name.c_str(), &active);
-
-	ImGui::SetCursorPos(ImVec2(15, 32));
-	ImGui::Text("Camera settings");
-	ImGui::SetCursorPos(ImVec2(15, 60));
-	ImGui::Separator();
+    ImGui::SetCursorPos(ImVec2(15, 32));
+    ImGui::Text("Transform object options");
+    ImGui::SetCursorPos(ImVec2(15, 60));
+    ImGui::Separator();
 
 	ImGui::Columns(2);
 	ImGui::SetColumnWidth(0, 74);
-	
+
 	// Column I
 	//
 	// Position options
@@ -31,6 +18,11 @@ void CameraWindow::Update() {
 	// Rotation options
 	ImGui::SetCursorPos(ImVec2(15, 108));
 	ImGui::Text("Rotation");
+
+	//
+	// Scale options
+	ImGui::SetCursorPos(ImVec2(15, 138));
+	ImGui::Text("Scale");
 
 	ImGui::NextColumn();
 
@@ -122,6 +114,49 @@ void CameraWindow::Update() {
 	ImGui::SetCursorPos(ImVec2(264, 105));
 	ImGui::Button("Z", ImVec2{ 20, 20 });
 	ImGui::PopStyleColor(3);
-	
+
+	// Scale inputs
+	ImGui::PushItemWidth(40);
+
+	// First slider 1
+	ImGui::SetCursorPos(ImVec2(90, 135));
+	static float x3 = 0.00f;
+	ImGui::DragFloat("##x", &x3, 0.00f);
+
+	// Button colored
+	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
+	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.9f,0.2f,0.2f,1.0f });
+	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.8f,0.1f,0.15f,1.0f });
+	ImGui::SetCursorPos(ImVec2(130, 135));
+	ImGui::Button("X", ImVec2{ 20, 20 });
+	ImGui::PopStyleColor(3);
+
+	ImGui::SameLine();
+
+	// Second slider
+	static float y3 = 0.00f;
+	ImGui::DragFloat("##y", &y3, 0.00f);
+
+	// Button colored 2
+	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
+	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.3f,0.8f,0.3f,1.0f });
+	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.2f,0.7f,0.2f,1.0f });
+	ImGui::SetCursorPos(ImVec2(197, 135));
+	ImGui::Button("Y", ImVec2{ 20, 20 });
+	ImGui::PopStyleColor(3);
+
+	ImGui::SameLine();
+
+	// Third slider
+	static float z3 = 0.00f;
+	ImGui::DragFloat("##z", &z3, 0.00f);
+
+	// Button colored 3
+	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
+	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4{ 0.2f, 0.35f, 0.9f, 1.0f });
+	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4{ 0.1f, 0.25f, 0.8f, 1.0f });
+	ImGui::SetCursorPos(ImVec2(264, 135));
+	ImGui::Button("Z", ImVec2{ 20, 20 });
+	ImGui::PopStyleColor(3);
+
 	ImGui::End();
-}

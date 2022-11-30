@@ -8,7 +8,7 @@ void RenderPeekWindow::Start()
 
 void RenderPeekWindow::Update()
 {
-	ImGui::Begin(name.c_str(), &active);
+	ImGui::Begin(name.c_str(), &active, ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoScrollbar);
 
 	ImGui::SetCursorPos(ImVec2(15, 32));
 	ImGui::Text("Game Assets");

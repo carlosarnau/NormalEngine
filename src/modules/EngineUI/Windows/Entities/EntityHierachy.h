@@ -6,7 +6,7 @@
 
 
 struct HierarchyWindow : public UI_Item {
-	HierarchyWindow() : UI_Item("Hierarchy") {
+	HierarchyWindow() : UI_Item("Navigation") {
 		rm_menu.flags = ImGuiHoveredFlags_ChildWindows || ImGuiHoveredFlags_RootWindow;
 		rm_menu.container_name = name.c_str();
 	};

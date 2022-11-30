@@ -32,7 +32,6 @@ void HierarchyWindow::UpdateEntry(Entity* curr_e)
             else {
                 inspector->entity = App->ecs->GetEntity(selected.back());
             }
-            
         }
     }
 
@@ -110,4 +109,8 @@ void HierarchyWindow::Update()
     ImGui::Text("GameObject properties:");
 
 	ImGui::End();
+    
+    ImGui::Begin("Hierarchy");
+
+    ImGui::End();
 }

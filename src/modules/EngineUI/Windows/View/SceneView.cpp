@@ -18,8 +18,8 @@ void SceneView::Update()
 	ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
 	ImGui::End();
 
-	// Action control
-	ImGui::Begin("Action Controls", nullptr, ImGuiWindowFlags_None);
+	// Action controls
+	ImGui::Begin("Action Controls", nullptr, ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoScrollbar);
 
 	ImGui::SetCursorPos(ImVec2(scenesize.x/2 - 60, 28));
 	// Start

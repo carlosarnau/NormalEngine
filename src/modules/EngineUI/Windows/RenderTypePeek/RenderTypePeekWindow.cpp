@@ -2,6 +2,7 @@
 #include <src/Application.h>
 #include <glew/include/GL/glew.h>
 
+
 void RenderPeekWindow::Start()
 {
 }
@@ -19,14 +20,36 @@ void RenderPeekWindow::Update()
 	SDL_GetWindowSize(App->window->window, &win_w, &win_h);
 
 	// Here starts the file system for Textures
-	constexpr char* s1_AssetDirectory = "Assets";
+	constexpr char* s_AssetPath = "Assets";
+	m_CurrentDirectory = s_AssetPath;
 	int i = 78;
-	for (auto& p : std::filesystem::directory_iterator(s1_AssetDirectory))
+
+	if (m_CurrentDirectory != std::filesystem::path(s_AssetPath))
 	{
-		std::string path = p.path().string();
-		ImGui::SetCursorPos(ImVec2(15, i));
-		ImGui::Text("%s", path.c_str());
-		i = i + 25;
+		if (ImGui::Button("<-"))
+		{
+			m_CurrentDirectory = m_CurrentDirectory.parent_path();
+		}
+	}
+	for (auto& directoryEntry : std::filesystem::directory_iterator(m_CurrentDirectory))
+	{
+		const auto& path = directoryEntry.path();
+		auto relativePath = std::filesystem::relative(path, s_AssetPath);
+		std::string filenameString = relativePath.filename().string();
+		// ImGui::SetCursorPos(ImVec2(15, i));
+		if (directoryEntry.is_directory())
+		{
+			if (ImGui::Button(filenameString.c_str()))
+			{
+				m_CurrentDirectory /= path.filename(); 
+			} 
+		}
+		else
+		{
+			if (ImGui::Button(filenameString.c_str()))
+			{
+			}
+		}
 	}
 
 	ImGui::End();

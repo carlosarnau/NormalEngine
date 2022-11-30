@@ -2,6 +2,9 @@
 
 #include "../../ui_item.h"
 #include "../../ModuleEngineUI.h"
+#include "src/modules/EngineUI/Windows/Transform/TransformWindow.h"
+#include <filesystem>
+
 
 class RenderPeekWindow : UI_Item {
 public:
@@ -11,5 +14,5 @@ public:
 	void Update();
 
 private:
-	int t_w = 500;
+	std::filesystem::path m_CurrentDirectory;
 };

@@ -28,7 +28,7 @@ void SceneView::Update()
 	{
 	}
 	if (ImGui::IsItemHovered()) {
-		ImGui::SetTooltip("The action will start");
+		ImGui::SetTooltip("Start the action");
 	}
 
 	ImGui::SameLine();
@@ -38,7 +38,7 @@ void SceneView::Update()
 	{
 	}
 	if (ImGui::IsItemHovered()) {
-		ImGui::SetTooltip("You'll pause the action");
+		ImGui::SetTooltip("Pause the action");
 	}
 
 	ImGui::SameLine();
@@ -49,7 +49,7 @@ void SceneView::Update()
 	}
 	if (ImGui::IsItemHovered())
 	{
-		ImGui::SetTooltip("You'll stop the action");
+		ImGui::SetTooltip("Stop the action");
 	}
 
 	ImGui::End();

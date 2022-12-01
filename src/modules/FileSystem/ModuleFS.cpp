@@ -45,6 +45,9 @@ bool ModuleFS::Init()
 	ilInit();
 	iluInit();
 
+	//Engine Scene Inicialize
+	TryLoadFromDisk("Assets/street/Street environment_V01.FBX");
+	
 	return true;
 }
 
@@ -91,7 +94,8 @@ void TryLoad_WithParentPath(const char* path, const char* parent_path, TempIfStr
 std::vector<WatchedData> TryLoadFromDisk(const char* path, const char* parent_path) {
 	std::vector<WatchedData> ret;
 	TempIfStream file(path);
-	if (file.GetData().size == 0) TryLoad_WithParentPath(path, parent_path, file);
+	if (file.GetData().size == 0) 
+		TryLoad_WithParentPath(path, parent_path, file);
 
 	TryConvert(file, path);
 		

@@ -8,9 +8,7 @@ constexpr char* s_AssetPath = "Assets";
 
 class RenderPeekWindow : UI_Item {
 public:
-	RenderPeekWindow() : UI_Item("Assets") {
-		m_CurrentDirectory = s_AssetPath;
-	};
+	RenderPeekWindow() : UI_Item("Assets") { m_CurrentDirectory = s_AssetPath ;};
 
 	void Start();
 	void Update();

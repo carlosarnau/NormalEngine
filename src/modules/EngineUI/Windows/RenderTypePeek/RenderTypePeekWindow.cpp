@@ -8,15 +8,12 @@ void RenderPeekWindow::Start()
 
 void RenderPeekWindow::Update()
 {
-	ImGui::Begin(name.c_str(), &active, ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoScrollbar);
+	ImGui::Begin(name.c_str(), &active);
 
 	ImGui::SetCursorPos(ImVec2(15, 32));
 	ImGui::Text("Game Assets");
 	ImGui::SetCursorPos(ImVec2(15, 60));
 	ImGui::Separator();
-
-	int win_w, win_h;
-	SDL_GetWindowSize(App->window->window, &win_w, &win_h);
 
 	// Here starts the file system for Textures
 	int i = 78;
@@ -28,26 +25,50 @@ void RenderPeekWindow::Update()
 			m_CurrentDirectory = m_CurrentDirectory.parent_path();
 		}
 	}
+
+	static float padding = 16.0f;
+	static float thumbnailSize = 128.0f;
+	float cellSize = thumbnailSize + padding;
+
+	float panelWidth = ImGui::GetContentRegionAvail().x;
+	int columnCount = (int)(panelWidth / cellSize);
+	if (columnCount < 1)
+		columnCount = 1;
+	ImGui::Columns(columnCount, 0, false);
+
 	for (auto& directoryEntry : std::filesystem::directory_iterator(m_CurrentDirectory))
 	{
 		const auto& path = directoryEntry.path();
 		auto relativePath = std::filesystem::relative(path, s_AssetPath);
 		std::string filenameString = relativePath.filename().string();
-		// ImGui::SetCursorPos(ImVec2(15, i));
+		
+		ImGui::Button(filenameString.c_str(), { thumbnailSize, thumbnailSize });
+		ImGui::Text(filenameString.c_str());
+	
 		if (directoryEntry.is_directory())
 		{
+			ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left);
+			/*
 			if (ImGui::Button(filenameString.c_str()))
 			{
 				m_CurrentDirectory /= path.filename(); 
 			} 
+			*/
 		}
 		else
 		{
+			/*
 			if (ImGui::Button(filenameString.c_str()))
 			{
 			}
+			*/
 		}
-	}
+		ImGui::NextColumn();
 
+	}
+	ImGui::Columns(1);
+	ImGui::SliderFloat("Thumbnail Size", &thumbnailSize, 16, 512);
+	ImGui::SliderFloat("Padding", &padding, 0, 32);
+	// TODO: status bar
 	ImGui::End();
 }

@@ -13,12 +13,6 @@
     <ClCompile Include="src\helpers\MathGeoLib\Math\BitOps.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\Render\Primitives\BufferedPrimitives.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\ECS\ComponentsRender\C_MeshRenderer.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
     <ClCompile Include="src\helpers\MathGeoLib\Math\Callstack.cpp">
       <Filter>External</Filter>
     </ClCompile>
@@ -32,30 +26,6 @@
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="src\helpers\MathGeoLib\Time\Clock.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\Windows\Configuration\ConfigWindow.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\FileSystem\Converters\ConverterAssimp.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\FileSystem\Converters\ConverterMaterial.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\FileSystem\Converters\ConverterMesh.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\FileSystem\Converters.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\ECS\ComponentsMove\CTransform.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\Render\Primitives\DirectDrawPrimitives.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\Windows\Entities\EntityHierarchy.cpp">
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="src\helpers\MathGeoLib\Math\float2.cpp">
@@ -139,9 +109,6 @@
     <ClCompile Include="src\helpers\MathGeoLib\Geometry\LineSegment2D.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="src\helpers\log.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -160,25 +127,10 @@
     <ClCompile Include="src\modules\ModuleCamera3D.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\ECS\ModuleECS.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\ModuleEngineUI.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\FileSystem\ModuleFS.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
     <ClCompile Include="src\modules\ModuleInput.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\Render\ModuleRenderer3D.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
     <ClCompile Include="src\modules\ModuleWindow.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\MenuBar\MenuBar.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="src\helpers\MathGeoLib\Math\MiniFloat.cpp">
@@ -214,16 +166,7 @@
     <ClCompile Include="src\helpers\MathGeoLib\Geometry\Ray.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\Windows\RenderTypePeek\RenderTypePeekWindow.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\Render\RenderTypesCreators.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
     <ClCompile Include="src\helpers\MathGeoLib\Algorithm\SAT.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\Windows\View\SceneView.cpp">
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="src\helpers\MathGeoLib\Geometry\Sphere.cpp">
@@ -235,9 +178,6 @@
     <ClCompile Include="src\helpers\MathGeoLib\Math\TransformOps.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="src\modules\EngineUI\Windows\Transform\TransformWindow.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
     <ClCompile Include="src\helpers\MathGeoLib\Geometry\Triangle.cpp">
       <Filter>External</Filter>
     </ClCompile>
@@ -246,6 +186,66 @@
     </ClCompile>
     <ClCompile Include="src\helpers\MathGeoLib\Geometry\TriangleMesh.cpp">
       <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\ModuleEngineUI.cpp">
+      <Filter>Modules\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\Windows\Configuration\ConfigWindow.cpp">
+      <Filter>Modules\UI\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\Windows\Entities\EntityHierarchy.cpp">
+      <Filter>Modules\UI\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.cpp">
+      <Filter>Modules\UI\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\Windows\RenderTypePeek\RenderTypePeekWindow.cpp">
+      <Filter>Modules\UI\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\Windows\Transform\TransformWindow.cpp">
+      <Filter>Modules\UI\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\Windows\View\SceneView.cpp">
+      <Filter>Modules\UI\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\MenuBar\MenuBar.cpp">
+      <Filter>Modules\UI\MenuBar</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\FileSystem\Converters.cpp">
+      <Filter>Modules\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\FileSystem\ModuleFS.cpp">
+      <Filter>Modules\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\FileSystem\Converters\ConverterAssimp.cpp">
+      <Filter>Modules\FS\converters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\FileSystem\Converters\ConverterMaterial.cpp">
+      <Filter>Modules\FS\converters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\FileSystem\Converters\ConverterMesh.cpp">
+      <Filter>Modules\FS\converters</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\Render\ModuleRenderer3D.cpp">
+      <Filter>Modules\Renders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\Render\RenderTypesCreators.cpp">
+      <Filter>Modules\Renders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\Render\Primitives\BufferedPrimitives.cpp">
+      <Filter>Modules\Renders\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\Render\Primitives\DirectDrawPrimitives.cpp">
+      <Filter>Modules\Renders\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\ECS\ModuleECS.cpp">
+      <Filter>Modules\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\ECS\ComponentsMove\CTransform.cpp">
+      <Filter>Modules\ECS\ComponentsMove</Filter>
+    </ClCompile>
+    <ClCompile Include="src\modules\ECS\ComponentsRender\C_MeshRenderer.cpp">
+      <Filter>Modules\ECS\ComponentsRender</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -280,33 +280,6 @@
       <Filter>External</Filter>
     </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Time\Clock.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\ECS\ComponentIncludeAllTypes.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\ECS\ComponentsIncludeAll.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\Configuration\ConfigWindow.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\FileSystem\Converters.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\ECS\ComponentsMove\CS_Transform.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\ECS\ComponentsRender\CSMeshRenderer.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\DemoWindow.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\ECS\ComponentsRender\ECS_RendererTypes.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\Entities\EntityHierachy.h">
       <Filter>External</Filter>
     </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Math\FixedPoint.h">
@@ -349,9 +322,6 @@
       <Filter>External</Filter>
     </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\Frustum.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\FileSystem\FSDataTypes.h">
       <Filter>External</Filter>
     </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\GeometryAll.h">
@@ -441,9 +411,6 @@
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\LineSegment2D.h">
       <Filter>External</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Math\MatrixProxy.h">
       <Filter>External</Filter>
     </ClInclude>
@@ -483,22 +450,7 @@
     <ClInclude Include="src\modules\ModuleCamera3D.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\ECS\ModuleECS.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\ModuleEngineUI.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\FileSystem\ModuleFS.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="src\modules\ModuleInput.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\Render\ModuleRenderer3D.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\MenuBar\MenuBar.h">
       <Filter>Modules</Filter>
     </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Math\myassert.h">
@@ -518,9 +470,6 @@
     </ClInclude>
     <ClInclude Include="src\helpers\JSON\parson.h">
       <Filter>External\Parson</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\WindowsIncludeAll.h">
-      <Filter>External</Filter>
     </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\PBVolume.h">
       <Filter>External</Filter>
@@ -543,9 +492,6 @@
     <ClInclude Include="src\helpers\MathGeoLib\Math\Polynomial.h">
       <Filter>External</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\Render\Primitives\Primitives.h">
-      <Filter>External</Filter>
-    </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\QuadTree.h">
       <Filter>External</Filter>
     </ClInclude>
@@ -564,16 +510,7 @@
     <ClInclude Include="src\helpers\MathGeoLib\Math\Reinterpret.h">
       <Filter>External</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\Render\RendererTypes.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\RenderTypePeek\RenderTypePeekWindow.h">
-      <Filter>External</Filter>
-    </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Algorithm\SAT.h">
-      <Filter>External</Filter>
-    </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\View\SceneView.h">
       <Filter>External</Filter>
     </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Math\simd.h">
@@ -597,9 +534,6 @@
     <ClInclude Include="src\helpers\MathGeoLib\Math\TransformOps.h">
       <Filter>External</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\Windows\Transform\TransformWindow.h">
-      <Filter>External</Filter>
-    </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Geometry\Triangle.h">
       <Filter>External</Filter>
     </ClInclude>
@@ -612,11 +546,77 @@
     <ClInclude Include="src\helpers\Timer\tscns.h">
       <Filter>External</Filter>
     </ClInclude>
-    <ClInclude Include="src\modules\EngineUI\ui_item.h">
-      <Filter>External</Filter>
-    </ClInclude>
     <ClInclude Include="src\helpers\MathGeoLib\Math\vec2d.h">
       <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\ui_item.h">
+      <Filter>Modules\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\ModuleEngineUI.h">
+      <Filter>Modules\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\Windows\DemoWindow.h">
+      <Filter>Modules\UI\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\Windows\WindowsIncludeAll.h">
+      <Filter>Modules\UI\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\Windows\Configuration\ConfigWindow.h">
+      <Filter>Modules\UI\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\Windows\Entities\EntityHierachy.h">
+      <Filter>Modules\UI\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\Windows\Inspector\ComponentInspector.h">
+      <Filter>Modules\UI\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\Windows\RenderTypePeek\RenderTypePeekWindow.h">
+      <Filter>Modules\UI\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\Windows\Transform\TransformWindow.h">
+      <Filter>Modules\UI\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\Windows\View\SceneView.h">
+      <Filter>Modules\UI\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\MenuBar\MenuBar.h">
+      <Filter>Modules\UI\MenuBar</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\FileSystem\Converters.h">
+      <Filter>Modules\FS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\FileSystem\FSDataTypes.h">
+      <Filter>Modules\FS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\FileSystem\ModuleFS.h">
+      <Filter>Modules\FS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\Render\ModuleRenderer3D.h">
+      <Filter>Modules\Renders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\Render\RendererTypes.h">
+      <Filter>Modules\Renders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\Render\Primitives\Primitives.h">
+      <Filter>Modules\Renders\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\ECS\ComponentIncludeAllTypes.h">
+      <Filter>Modules\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\ECS\ComponentsIncludeAll.h">
+      <Filter>Modules\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\ECS\ModuleECS.h">
+      <Filter>Modules\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\ECS\ComponentsMove\CS_Transform.h">
+      <Filter>Modules\ECS\ComponentsMove</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\ECS\ComponentsRender\CSMeshRenderer.h">
+      <Filter>Modules\ECS\ComponentsRender</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\ECS\ComponentsRender\ECS_RendererTypes.h">
+      <Filter>Modules\ECS\ComponentsRender</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -654,6 +654,36 @@
     </Filter>
     <Filter Include="External\Parson">
       <UniqueIdentifier>{f7cb74b5-45c3-4677-8bb1-7c2eaaed5f4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\UI">
+      <UniqueIdentifier>{b9fbbcad-e958-4ed6-b35b-82d64eed4302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\UI\Window">
+      <UniqueIdentifier>{012471e1-6095-4a76-8f69-7b4417da939b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\UI\MenuBar">
+      <UniqueIdentifier>{23dfaf25-ce1b-4d8c-b686-d5bf942581ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\FS">
+      <UniqueIdentifier>{9fae209f-26ea-4949-b025-caf33768c538}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\FS\converters">
+      <UniqueIdentifier>{8c83709c-313e-4db2-8547-0abe4eaf33f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Renders">
+      <UniqueIdentifier>{12f4f4cd-b415-4e60-b47b-d2b73b83cf6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Renders\Primitives">
+      <UniqueIdentifier>{04bfc381-3207-427e-a921-d435c976cf72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ECS">
+      <UniqueIdentifier>{367883c8-27b8-4888-9a0c-15d88bcf2f08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ECS\ComponentsMove">
+      <UniqueIdentifier>{fc57c8e0-4547-42ac-9646-b182f992850d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ECS\ComponentsRender">
+      <UniqueIdentifier>{16e262f1-78f9-475e-b404-08a9337a40f7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

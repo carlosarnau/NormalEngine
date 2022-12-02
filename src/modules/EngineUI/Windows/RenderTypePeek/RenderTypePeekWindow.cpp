@@ -34,6 +34,7 @@ void RenderPeekWindow::Update()
 	int columnCount = (int)(panelWidth / cellSize);
 	if (columnCount < 1)
 		columnCount = 1;
+
 	ImGui::Columns(columnCount, 0, false);
 
 	for (auto& directoryEntry : std::filesystem::directory_iterator(m_CurrentDirectory))
@@ -41,31 +42,17 @@ void RenderPeekWindow::Update()
 		const auto& path = directoryEntry.path();
 		auto relativePath = std::filesystem::relative(path, s_AssetPath);
 		std::string filenameString = relativePath.filename().string();
-		
-		ImGui::Button(filenameString.c_str(), { thumbnailSize, thumbnailSize });
-		ImGui::Text(filenameString.c_str());
 	
-		if (directoryEntry.is_directory())
+		ImGui::Button(filenameString.c_str(), { thumbnailSize, thumbnailSize });
+		if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
 		{
-			ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left);
-			/*
-			if (ImGui::Button(filenameString.c_str()))
-			{
-				m_CurrentDirectory /= path.filename(); 
-			} 
-			*/
+			if (directoryEntry.is_directory())
+				m_CurrentDirectory /= path.filename();
 		}
-		else
-		{
-			/*
-			if (ImGui::Button(filenameString.c_str()))
-			{
-			}
-			*/
-		}
+		ImGui::Text(filenameString.c_str());
 		ImGui::NextColumn();
-
 	}
+
 	ImGui::Columns(1);
 	ImGui::SliderFloat("Thumbnail Size", &thumbnailSize, 16, 512);
 	ImGui::SliderFloat("Padding", &padding, 0, 32);

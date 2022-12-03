@@ -65,7 +65,7 @@ void HierarchyWindow::UpdateEntry(Entity* curr_e)
 
 void HierarchyWindow::Update()
 {
-    ImGui::Begin("Hierarchy");
+    ImGui::Begin("Hierarchy", &active);
     if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(0) && !CheckModifiers()) {
         selected.clear();
         if (inspector != nullptr) inspector->entity = nullptr;

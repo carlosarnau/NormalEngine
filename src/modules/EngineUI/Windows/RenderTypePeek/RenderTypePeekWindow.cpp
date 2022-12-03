@@ -8,6 +8,12 @@ void RenderPeekWindow::Start()
 
 void RenderPeekWindow::Update()
 {
+	// Console
+	ImGui::Begin("Console", &active);
+
+	ImGui::End();
+
+	// Assets navigator
 	ImGui::Begin(name.c_str(), &active);
 
 	ImGui::SetCursorPos(ImVec2(15, 32));
@@ -43,7 +49,9 @@ void RenderPeekWindow::Update()
 		auto relativePath = std::filesystem::relative(path, s_AssetPath);
 		std::string filenameString = relativePath.filename().string();
 	
-		ImGui::Button(filenameString.c_str(), { thumbnailSize, thumbnailSize });
+		icon = directoryEntry.is_directory() ?	IMG_Load("Assets/Navigator/DirectoryIcon.bmp") : IMG_Load("Assets/Navigator/FileIcon.bmp");
+		
+		ImGui::ImageButton(icon, { thumbnailSize, thumbnailSize }, {0,1}, {1,0});
 		if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
 		{
 			if (directoryEntry.is_directory())

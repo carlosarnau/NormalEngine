@@ -11,6 +11,12 @@ void SceneView::Start()
 
 void SceneView::Update()
 {
+	// Game view
+	ImGui::Begin("Game", &active);
+
+	ImGui::End();
+
+	// Edito view
 	ImGui::Begin(name.c_str(), &active);
 	ImVec2 scenesize = { (float)fb.attachment.w, (float)fb.attachment.h };
 	float ww = ImGui::GetContentRegionAvail().x;
@@ -23,7 +29,7 @@ void SceneView::Update()
 	// Action controls
 	ImGui::Begin("Action Controls", nullptr, ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoScrollbar);
 
-	ImGui::SetCursorPos(ImVec2(scenesize.x/2 - 60, 28));
+	ImGui::SetCursorPos(ImVec2(scenesize.x/2 - 68, 28));
 	// Start
 	if (ImGui::Button("Start", ImVec2(50, 20)))
 	{

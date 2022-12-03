@@ -49,7 +49,7 @@ void RenderPeekWindow::Update()
 		auto relativePath = std::filesystem::relative(path, s_AssetPath);
 		std::string filenameString = relativePath.filename().string();
 	
-		icon = directoryEntry.is_directory() ?	IMG_Load("Assets/Navigator/DirectoryIcon.bmp") : IMG_Load("Assets/Navigator/FileIcon.bmp");
+		icon = directoryEntry.is_directory() ? SDL_LoadBMP("Assets/Navigator/DirectoryIcon.bmp") : SDL_LoadBMP("Assets/Navigator/FileIcon.bmp");
 		
 		ImGui::ImageButton(icon, { thumbnailSize, thumbnailSize }, {0,1}, {1,0});
 		if(ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))

@@ -94,8 +94,9 @@ update_status ModuleCamera3D::Update(float dt)
 
 		Position = Reference + Z * length(Position);
 	}
-	//mouse picking 
-	MousePicking();
+	//mouse picking
+	if(App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN)	MousePicking();
+
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
 

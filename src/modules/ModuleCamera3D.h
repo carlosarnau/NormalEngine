@@ -19,6 +19,10 @@ public:
 	void Move(const vec3 &Movement);
 	float* GetViewMatrix();
 
+	void MousePicking();
+	
+	Frustum frustum;
+
 private:
 
 	void CalculateViewMatrix();
@@ -30,4 +34,5 @@ public:
 private:
 
 	mat4x4 ViewMatrix, ViewMatrixInverse;
+	LineSegment picking = LineSegment(vec::zero, vec::zero);
 };

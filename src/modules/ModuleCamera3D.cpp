@@ -1,7 +1,7 @@
 #include <src/helpers/Globals.h>
 #include <src/Application.h>
 #include "ModuleCamera3D.h"
-
+#include <imgui.h>
 ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module("renderer")
 {
 	CalculateViewMatrix();
@@ -94,7 +94,8 @@ update_status ModuleCamera3D::Update(float dt)
 
 		Position = Reference + Z * length(Position);
 	}
-
+	//mouse picking 
+	MousePicking();
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
 
@@ -153,4 +154,43 @@ void ModuleCamera3D::CalculateViewMatrix()
 {
 	ViewMatrix = mat4x4(X.x, Y.x, Z.x, 0.0f, X.y, Y.y, Z.y, 0.0f, X.z, Y.z, Z.z, 0.0f, -dot(X, Position), -dot(Y, Position), -dot(Z, Position), 1.0f);
 	ViewMatrixInverse = inverse(ViewMatrix);
+}
+
+
+
+
+void ModuleCamera3D::MousePicking()
+{
+	float x = ((ImGui::GetMousePos().x / (float)App->window->window_w) * 2.0f) - 1.0f;
+	float y = 1 - ((ImGui::GetMousePos().y / (float)App->window->window_h) * 2.0f);
+	picking = (frustum.UnProjectLineSegment(x, y));
+
+	//App->ecs.
+
+	//std::vector<GameObject*> intersected;
+	//std::vector<GameObject*> objects_to_check;
+
+	/*if (App->gameObj->GetSceneKDTree() != nullptr)
+		objects_to_check = App->gameObj->non_static_objects_in_scene;
+	else
+		objects_to_check = App->gameObj->objects_in_scene;
+
+	if (App->gameObj->GetSceneKDTree() != nullptr)
+		TreeTestIntersect(App->gameObj->GetSceneKDTree()->base_node, picking, objects_to_check);
+
+	TestIntersect(objects_to_check, picking, intersected);
+
+	float dist = INT_MAX;
+	for (int i = 0; i < intersected.size(); i++)
+	{
+		float new_dist = TestTris(picking, intersected[i]->GetComponent(CT_Mesh)->AsMesh());
+		if (new_dist < dist)
+		{
+			App->gameObj->SetActiveFalse();
+			dist = new_dist;
+			App->gameObj->active_objects.push_back(intersected[i]);
+			intersected[i]->sv_active = true;
+		}
+	}*/
+
 }

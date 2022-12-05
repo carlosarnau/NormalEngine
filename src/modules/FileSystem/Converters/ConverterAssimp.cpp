@@ -63,7 +63,7 @@ void ConvertAssimpScene(const TempIfStream& file) {
 	size_t filename_len = strlen(filename);
 	std::string parent_path = file.path.substr(0, file.path.length() - filename_len);
 	
-	TraverseAiNodes(aiscene, parent_path.c_str(), aiscene->mRootNode,nullptr);
+	if(aiscene != nullptr) TraverseAiNodes(aiscene, parent_path.c_str(), aiscene->mRootNode,nullptr);
 
-	aiReleaseImport(aiscene);
+	if (aiscene != nullptr) aiReleaseImport(aiscene);
 }

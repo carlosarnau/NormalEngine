@@ -17,8 +17,6 @@ struct MenuItem
     std::vector<uint32_t> sub_items;
 };
 
-
-
 class MenuBar : public UI_Item
 {
 public:
@@ -27,16 +25,21 @@ public:
     std::vector<MenuItem> variable_ui;
 
     bool registerable = false;
-    MenuBar() : UI_Item("Menu Bar") { active = true; };
+    bool activateAbout = false;
+    MenuBar() : UI_Item("Mvsvdar") { active = true; };
 
     void Init() final;
 
     void UpdateMenuItem(MenuItem& item);
     
-
     void Update() final;
 
     void CleanUp() final {}
+
+    void MenuBar::SaveFile();
+    void MenuBar::LoadScene();
+    void MenuBar::ImportFile();
+    update_status MenuBar::CloseApp();
 
     uint32_t RegisterMenuItem(bool* item_active, const char* name, const char* submenu = "");
 };

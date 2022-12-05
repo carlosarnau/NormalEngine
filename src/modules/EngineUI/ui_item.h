@@ -29,7 +29,7 @@ public:
 	virtual void CleanUp() {};	
 
 public:
-	bool active = false;
+	bool active = true;
 	uint32_t id;
 
 	std::string name;

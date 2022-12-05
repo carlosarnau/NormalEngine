@@ -2,11 +2,13 @@
 #include <src/Application.h>
 #include <src/modules/ECS/ModuleECS.h>
 
-void EntityHierarchyWindow::Start() {
+void HierarchyWindow::Start() 
+{
     inspector = (ComponentInspector*)App->engine_ui->GetItem("Inspector");
 }
 
-void EntityHierarchyWindow::UpdateRMMenu() {
+void HierarchyWindow::UpdateRMMenu() 
+{
     rm_menu.CheckToOpen();
     if (ImGui::BeginPopup(rm_menu.container_name))
     {
@@ -33,7 +35,8 @@ void EntityHierarchyWindow::UpdateRMMenu() {
 
 static ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanFullWidth;
 
-void EntityHierarchyWindow::UpdateEntry(Entity* curr_e) {
+void HierarchyWindow::UpdateEntry(Entity* curr_e) 
+{
     bool isselected = IsSelected(curr_e->id);
     ImGuiTreeNodeFlags tmp_flags = node_flags
         | ((curr_e->children.size() == 0) * ImGuiTreeNodeFlags_Leaf)
@@ -51,7 +54,6 @@ void EntityHierarchyWindow::UpdateEntry(Entity* curr_e) {
             else {
                 inspector->entity = App->ecs->GetEntity(selected.back());
             }
-            
         }
     }
 
@@ -61,18 +63,16 @@ void EntityHierarchyWindow::UpdateEntry(Entity* curr_e) {
     if (open) ImGui::TreePop();
 }
 
-void EntityHierarchyWindow::Update() {
-	
-	ImGui::Begin(name.c_str(), &active);
+void HierarchyWindow::Update()
+{
+    ImGui::Begin("Hierarchy", &active);
     if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(0) && !CheckModifiers()) {
         selected.clear();
         if (inspector != nullptr) inspector->entity = nullptr;
     }
 
     UpdateEntry(&App->ecs->root);
-
     UpdateRMMenu();
 
-	ImGui::End();
-
+    ImGui::End();
 }

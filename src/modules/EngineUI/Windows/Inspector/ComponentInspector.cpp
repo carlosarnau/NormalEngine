@@ -4,12 +4,8 @@
 void ComponentInspector::UpdateRMMenu() {
 	rm_menu.CheckToOpen();
 	if (ImGui::BeginPopup(rm_menu.container_name)) {
-		if (ImGui::MenuItem("Add Transform")) {
-
-		}
-		if (ImGui::MenuItem("Add Mesh")) {
-
-		}
+		if (ImGui::MenuItem("Add Transform")) {}
+		if (ImGui::MenuItem("Add Mesh")) {}
 	}
 }
 
@@ -27,7 +23,7 @@ void ComponentInspector::Update() {
 	for (auto c : entity->components) {
 		sprintf(button_id, "##Button%llu", c->id.id);
 		ImGui::Checkbox(button_id, &c->active);
-		ImGui::SameLine();		
+		ImGui::SameLine();
 		c->DrawInspector();
 		sprintf(button_id, "Delete##Button%llu", c->id.id);
 		ImGui::Button(button_id);

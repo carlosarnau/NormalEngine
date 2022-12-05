@@ -6,7 +6,7 @@
 class SceneView : UI_Item {
 	GPUFBO fb;
 public:
-	SceneView() : UI_Item("Scene View") {};
+	SceneView() : UI_Item("Scene") {};
 	void Start();
 	void Update();
 

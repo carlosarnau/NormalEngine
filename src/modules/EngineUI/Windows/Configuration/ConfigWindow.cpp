@@ -15,6 +15,8 @@ double delta_ticks;
 std::vector<float> ticks;
 int max_ticks = 60;
 float fps;
+
+// Performance graphs
 void ConfigWindow::PerformanceGraphs()
 {
 	curr_ticks = SDL_GetTicks64();
@@ -41,20 +43,43 @@ int l_w, l_h;
 double brightness;
 bool fullscreen, resizable, borderless, full_desktop;
 
+// Window options
 void ConfigWindow::WindowOptions()
 {
+	bool screen_modified = false;
 	bool ret = false;
-	ImGui::Checkbox("Fullscreen", &App->window->fullscreen); 
-	ImGui::Checkbox("Borderless", &App->window->borderless);
-	ImGui::Checkbox("Resizable", &App->window->resizable);
-	ImGui::Checkbox("Full Desktop", &App->window->full_desktop);
+	int win_w, win_h;
+	SDL_GetWindowSize(App->window->window, &win_w, &win_h);
 
-	ImGui::SliderInt("Width", &App->window->w, 100, 1920);
-	ImGui::SliderInt("Height", &App->window->h, 100, 1080);
+	if (ImGui::Checkbox("Fullscreen", &App->window->fullscreen))
+	{
+		//App->window->SetFullscreen(App->window->fullscreen);
+	}
+
+	if (ImGui::Checkbox("Borderless", &App->window->borderless))
+		//App->window->SetBorderless();
+
+	if (ImGui::Checkbox("Resizable", &App->window->resizable))
+		//App->window->SetResizable();
+
+	if (ImGui::Checkbox("Full Desktop", &App->window->full_desktop))
+	{
+		//App->window->SetFullDesktop(App->window->full_desktop);
+	}
+
+	/*if (ImGui::SliderFloat("Brightness", &App->window->brightness, 0.0f, 1.0f))
+		App->window->SetBrightness();
+
+	if (ImGui::SliderInt("Width", &win_w, 400, App->window->screen_size_w - 1) && !App->window->fullscreen && !App->window->full_desktop)
+	{
+		SDL_SetWindowSize(App->window->window, App->window->window_w, App->window->window_h);
+	}
+
+	if (ImGui::SliderInt("Height", &win_h, 400, App->window->screen_size_h - 1) && !App->window->fullscreen && !App->window->full_desktop)
+	{
+		SDL_SetWindowSize(App->window->window, App->window->window_w, App->window->window_h);
+	}*/
 }
-
-
-
 
 #include "windows.h"
 #include "psapi.h"
@@ -66,6 +91,7 @@ int num_cpus;
 std::string gpu, gpu_brand;
 std::vector<const char*> instructionsets;
 
+// Hardware information
 void ConfigWindow::HardwareInfo()
 {
 	ImGui::Text("CPU Cores: "); ImGui::SameLine(); ImGui::TextColored(hw_color, "%i", num_cpus);
@@ -76,7 +102,8 @@ void ConfigWindow::HardwareInfo()
 
 	ImGui::Text("System RAM: "); ImGui::SameLine(); ImGui::TextColored(hw_color, "%.3f GB (%.3f MB used)", ram/1024., (pmc.WorkingSetSize)/(float)(1024*1024));
 	ImGui::Text("Instruction Sets: ");
-	for (const char* str : instructionsets) {
+	for (const char* str : instructionsets) 
+	{
 		ImGui::SameLine();
 		ImGui::TextColored(hw_color, "%s", str);
 	}
@@ -90,58 +117,67 @@ void ConfigWindow::HardwareInfo()
 	ImGui::TextColored(hw_color, "%s", gpu.c_str());
 }
 
-
-
 #include <gl/GL.h>
 OpenGLState state;
 int curr_src_blend = 0;
 int curr_dst_blend = 0;
+
 const char* blend_strings[] = {
 	"0", "1", "SRC_COLOR", "1 - SRC_COLOR",
 	"DST_COLOR", "1 - DST_COLOR", "SRC_ALPHA",
 	"1 - SRC_ALPHA", "DST_ALPHA", "1 - DST_ALPHA",
 	"ALPHA_SATURATE"
 };
+
 uint32_t blend_vals[] = {
 	GL_ZERO, GL_ONE, GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR,
 	GL_DST_COLOR, GL_ONE_MINUS_DST_COLOR, GL_SRC_ALPHA,
 	GL_ONE_MINUS_SRC_ALPHA, GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA,
 	GL_SRC_ALPHA_SATURATE,
 };
+
 constexpr int blend_arrsize = sizeof(blend_vals) / sizeof(uint32_t);
 
 const char* polymode_strings[] = {
 	"FRONT AND BACK", "FRONT"
 };
+
 uint32_t polymode_vals[] = {
 	GL_FRONT_AND_BACK, GL_FRONT_FACE
 };
+
 constexpr int polymode_arrsize = sizeof(polymode_vals) / sizeof(uint32_t);
 int curr_polymode = 0;
 
 const char* polyfill_strings[] = {
 	"FILL", "LINES", "POINTS",
 };
+
 uint32_t polyfill_vals[] = {
 	GL_FILL, GL_LINE, GL_POINT,
 };
+
 constexpr int polyfill_arrsize = sizeof(polyfill_vals) / sizeof(uint32_t);
 int curr_polyfill = 0;
 
 #include <src/modules/Render/Primitives/Primitives.h>
 
 bool render_primitives = false;
+
 const char* primitive_strs[] = {
 	"Direct Draw Triangle", "Direct Draw Cube", "DD Cube Index example", "DD Cube Loop Index",
 	"Vertex Array Cube", "Indexed Tetrahedron", "Indexed DiskSphere"
 };
+
 int curr_primitive = 0;
 
 constexpr int primitive_arrsize = sizeof(primitive_strs) / sizeof(char*);
+
+// Render options
 void ConfigWindow::RenderOptions()
 {
 	bool ret = false;
-	ret |= ImGui::Checkbox("COLOR MATERIAL", &state.color_material);
+	ImGui::Checkbox("COLOR MATERIAL", &state.color_material);
 	ret |= ImGui::Checkbox("CULL FACES", &state.cull_faces);
 	ret |= ImGui::Checkbox("DEPTH TEST", &state.depth_test);
 	ret |= ImGui::Checkbox("TEXTURES", &state.texture2D);
@@ -166,7 +202,6 @@ void ConfigWindow::RenderOptions()
 		state.poly_mode = polymode_vals[curr_polymode];
 		state.poly_fill = polyfill_vals[curr_polyfill];
 		
-
 		App->renderer3D->default_state = state;
 	}
 
@@ -180,7 +215,8 @@ void ConfigWindow::RenderOptions()
 //================================================================
 // Start defined at the bottom as needs knowledge of used local variables
 
-void ConfigWindow::Start() {
+void ConfigWindow::Start()
+{
 	// Hardware Info
 	l1_cache = SDL_GetCPUCacheLineSize(); // Returns in KB not B
 	num_cpus = SDL_GetCPUCount();
@@ -207,7 +243,6 @@ void ConfigWindow::Start() {
 	borderless = App->window->borderless;
 	resizable = App->window->resizable;
 
-
 	// Renderer Options
 	state = App->renderer3D->default_state;
 	for (int i = 0; blend_vals[(curr_src_blend = i)] != state.src_blend; ++i);
@@ -217,3 +252,4 @@ void ConfigWindow::Start() {
 	for (int i = 0; polymode_vals[(curr_polymode = i)] != state.poly_mode; ++i);
 	for (int i = 0; polyfill_vals[(curr_polyfill = i)] != state.poly_fill; ++i);
 }
+

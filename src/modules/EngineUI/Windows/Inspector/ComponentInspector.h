@@ -11,8 +11,7 @@ struct ComponentInspector : UI_Item {
 	ComponentInspector() : UI_Item("Inspector") {};
 
 	RMPopupMenu rm_menu;
-	void UpdateRMMenu();
 
+	void UpdateRMMenu();
 	void Update();
-	
 };

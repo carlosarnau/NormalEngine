@@ -42,8 +42,8 @@ public:
 
 	void Save(JSON_Object* root_node);
 	void Load(JSON_Object* root_node);
-private:
 
+private:
 	void AddModule(Module* mod);
 	void PrepareUpdate();
 	void FinishUpdate();

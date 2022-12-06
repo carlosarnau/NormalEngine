@@ -3,8 +3,6 @@
 #include "../../ModuleEngineUI.h"
 #include "src/modules/EngineUI/Windows/Transform/TransformWindow.h"
 #include <filesystem>
-#include <libs/SDL/include/SDL.h>
-#include <libs/SDL/include/SDL_image.h>
 
 constexpr char* s_AssetPath = "Assets";
 

@@ -1,7 +1,6 @@
 #include "RenderTypePeekWindow.h"
 #include <src/Application.h>
 #include <glew/include/GL/glew.h>
-#pragma comment( lib, "SDL_Image/libx86/SDL2_image.lib" )
 
 void RenderPeekWindow::Start()
 {
@@ -51,7 +50,7 @@ void RenderPeekWindow::Update()
 			auto relativePath = std::filesystem::relative(path, s_AssetPath);
 			std::string filenameString = relativePath.filename().string();
 
-			icon = IMG_Load("Assets/Navigator/DirectoryIcon.png");
+			icon = SDL_LoadBMP("Assets/Navigator/DirectoryIcon.png");
 
 			ImGui::ImageButton(icon, { thumbnailSize, thumbnailSize }, { 0,1 }, { 1,0 });
 			if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))

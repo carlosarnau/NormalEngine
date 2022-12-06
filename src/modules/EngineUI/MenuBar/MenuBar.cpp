@@ -37,11 +37,11 @@ void MenuBar::Update()
         }
         if (ImGui::MenuItem("Save File", "CTRL+S")) 
         {
-            // SaveFile();
+            SaveFile();
         }
         if (ImGui::MenuItem("Open File", "CTRL+L")) 
         {
-            // OpenFile("NormalEngine (*.normal)\0.normal\0");
+            OpenFile();
         }
         if (ImGui::MenuItem("Import", "CTRL+I"))
         {
@@ -174,52 +174,53 @@ uint32_t MenuBar::RegisterMenuItem(bool* item_active, const char* name, const ch
     uint32_t ret = items.size() - 1;
     if (strcmp(submenu, "") == 0) base_items.push_back(ret);
     else {} //items[sub_item].sub_items.push_back(ret);
-    // TODO: Find submenu and plop it there, or create it
+    //  TODO: Find submenu and plop it there, or create it
     return ret;
 };
 
-std::string SaveFile(const char* filter)
+//  Save File
+void MenuBar::SaveFile()
 {
     OPENFILENAME ofn;
-    CHAR szFile[260] = { 0 };
-    ZeroMemory(&ofn, sizeof(OPENFILENAME));
+    char fileName[MAX_PATH] = "";
+    ZeroMemory(&ofn, sizeof(ofn));
     ofn.lStructSize = sizeof(OPENFILENAME);
     ofn.hwndOwner = NULL;
-    ofn.lpstrFile = szFile;
-    ofn.nMaxFile = sizeof(szFile);
-    ofn.lpstrFilter = filter;
-    ofn.nFilterIndex = 1;
-    ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
+    ofn.lpstrFilter = "DrunkEngine Scenes (*.drnk*)\0*.drnk*\0";
+    ofn.lpstrFile = fileName;
+    ofn.nMaxFile = MAX_PATH;
+    ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOCHANGEDIR;
+    ofn.lpstrDefExt = "";
 
-    if (GetSaveFileName(&ofn) == TRUE)
-    {
-        return ofn.lpstrFile;
-    }
+    GetSaveFileName(&ofn);
+    if (fileName[0] != '\0')
+        //App->scene->SaveScene(&fileName[0]);
 
-    return std::string();
+    SetInactive();
 }
 
-std::string OpenFile(const char* filter)
+//  Open File
+void MenuBar::OpenFile()
 {
     OPENFILENAME ofn;
-    CHAR szFile[260] = { 0 };       
-    ZeroMemory(&ofn, sizeof(OPENFILENAME));
+    char fileName[MAX_PATH] = "";
+    ZeroMemory(&ofn, sizeof(ofn));
     ofn.lStructSize = sizeof(OPENFILENAME);
     ofn.hwndOwner = NULL;
-    ofn.lpstrFile = szFile;
-    ofn.nMaxFile = sizeof(szFile);
-    ofn.lpstrFilter = filter;
-    ofn.nFilterIndex = 1;
-    ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
+    ofn.lpstrFilter = "DrunkEngine Scenes (*.drnk*)\0*.drnk*\0";
+    ofn.lpstrFile = fileName;
+    ofn.nMaxFile = MAX_PATH;
+    ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOCHANGEDIR;
+    ofn.lpstrDefExt = "";
 
-    if (GetOpenFileName(&ofn) == TRUE)
-    {
-        return ofn.lpstrFile;
-    }
+    GetOpenFileName(&ofn);
+    if (fileName[0] != '\0')
+        //App->scene->LoadSceneFile(fileName);
 
-    return std::string();
+    SetInactive();
 }
 
+//  Import Assets
 void MenuBar::ImportFile()
 {
     OPENFILENAME ofn;
@@ -235,7 +236,7 @@ void MenuBar::ImportFile()
 
     GetOpenFileName(&ofn);
     if (fileName[0] != '\0')
-        //App->importer->LoadFile(fileName);
+        // App->importer->LoadFile(fileName);
 
     SetInactive();
 }

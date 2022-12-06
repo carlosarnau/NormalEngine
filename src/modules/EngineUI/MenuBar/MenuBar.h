@@ -37,8 +37,8 @@ public:
     void CleanUp() final {}
 
     //  These return empty string if cancelled
-    static std::string SaveFile(const char* filter);
-    static std::string OpenFile(const char* filter);
+    void MenuBar::SaveFile();
+    void MenuBar::OpenFile();
 
     void MenuBar::ImportFile();
     update_status MenuBar::CloseApp();

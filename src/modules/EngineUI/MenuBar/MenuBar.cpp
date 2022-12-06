@@ -1,5 +1,7 @@
 #include "MenuBar.h"
 #include "src/helpers/Globals.h"
+#include "src/Application.h"
+#include <commdlg.h>
 
 void MenuBar::Init()
 {
@@ -33,13 +35,13 @@ void MenuBar::Update()
         if (ImGui::MenuItem("Save", "CTRL+S"))
         {
         }
-        if (ImGui::MenuItem("Save As", "CTRL+S")) 
+        if (ImGui::MenuItem("Save File", "CTRL+S")) 
         {
-            SaveFile();
+            // SaveFile();
         }
-        if (ImGui::MenuItem("Load Scene", "CTRL+L")) 
+        if (ImGui::MenuItem("Open File", "CTRL+L")) 
         {
-            LoadScene();
+            OpenFile("NormalEngine (*.normal)\0.normal\0");
         }
         if (ImGui::MenuItem("Import", "CTRL+I"))
         {
@@ -176,44 +178,46 @@ uint32_t MenuBar::RegisterMenuItem(bool* item_active, const char* name, const ch
     return ret;
 };
 
-void MenuBar::SaveFile()
+std::string SaveFile(const char* filter)
 {
     OPENFILENAME ofn;
-    char fileName[MAX_PATH] = "";
-    ZeroMemory(&ofn, sizeof(ofn));
+    CHAR szFile[260] = { 0 };
+    ZeroMemory(&ofn, sizeof(OPENFILENAME));
     ofn.lStructSize = sizeof(OPENFILENAME);
     ofn.hwndOwner = NULL;
-    ofn.lpstrFilter = " (*.drnk*)\0*.drnk*\0";
-    ofn.lpstrFile = fileName;
-    ofn.nMaxFile = MAX_PATH;
-    ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOCHANGEDIR;
-    ofn.lpstrDefExt = "";
+    ofn.lpstrFile = szFile;
+    ofn.nMaxFile = sizeof(szFile);
+    ofn.lpstrFilter = filter;
+    ofn.nFilterIndex = 1;
+    ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
 
-    GetSaveFileName(&ofn);
-    if (fileName[0] != '\0')
-        //App->scene->SaveScene(&fileName[0]);
+    if (GetSaveFileName(&ofn) == TRUE)
+    {
+        return ofn.lpstrFile;
+    }
 
-    SetInactive();
+    return std::string();
 }
 
-void MenuBar::LoadScene()
+std::string OpenFile(const char* filter)
 {
     OPENFILENAME ofn;
-    char fileName[MAX_PATH] = "";
-    ZeroMemory(&ofn, sizeof(ofn));
+    CHAR szFile[260] = { 0 };       
+    ZeroMemory(&ofn, sizeof(OPENFILENAME));
     ofn.lStructSize = sizeof(OPENFILENAME);
     ofn.hwndOwner = NULL;
-    ofn.lpstrFilter = " (*.drnk*)\0*.drnk*\0";
-    ofn.lpstrFile = fileName;
-    ofn.nMaxFile = MAX_PATH;
-    ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOCHANGEDIR;
-    ofn.lpstrDefExt = "";
+    ofn.lpstrFile = szFile;
+    ofn.nMaxFile = sizeof(szFile);
+    ofn.lpstrFilter = filter;
+    ofn.nFilterIndex = 1;
+    ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
 
-    GetOpenFileName(&ofn);
-    if (fileName[0] != '\0')
-        //App->scene->LoadSceneFile(fileName);
+    if (GetOpenFileName(&ofn) == TRUE)
+    {
+        return ofn.lpstrFile;
+    }
 
-    SetInactive();
+    return std::string();
 }
 
 void MenuBar::ImportFile()

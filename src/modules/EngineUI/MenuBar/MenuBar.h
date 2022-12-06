@@ -36,8 +36,10 @@ public:
 
     void CleanUp() final {}
 
-    void MenuBar::SaveFile();
-    void MenuBar::LoadScene();
+    //  These return empty string if cancelled
+    static std::string SaveFile(const char* filter);
+    static std::string OpenFile(const char* filter);
+
     void MenuBar::ImportFile();
     update_status MenuBar::CloseApp();
 

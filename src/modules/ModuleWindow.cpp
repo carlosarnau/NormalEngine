@@ -160,7 +160,7 @@ void ModuleWindow::SetBrightness()
 	SDL_SetWindowBrightness(this->window, this->brightness);
 }
 
-/*
+
 void ModuleWindow::Save(JSON_Object* obj)
 {
 	json_object_set_boolean(obj, "fullscreen", fullscreen);
@@ -181,7 +181,7 @@ void ModuleWindow::Load(JSON_Object* obj) {
 	h = json_object_get_number(obj, "height");
 	SDL_SetWindowTitle(window, json_object_get_string(obj, "title"));
 }
-*/
+
 
 void ModuleWindow::SetDarkThemeColors()
 {

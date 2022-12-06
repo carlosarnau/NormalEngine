@@ -27,10 +27,8 @@ public:
 	void SetBrightness();
 	void SetDarkThemeColors();
 
-	/*
 	void Save(JSON_Object* obj);
 	void Load(JSON_Object* obj);
-	*/
 
 public:
 	//The window we'll be rendering to

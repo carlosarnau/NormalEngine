@@ -41,7 +41,7 @@ void MenuBar::Update()
         }
         if (ImGui::MenuItem("Open File", "CTRL+L")) 
         {
-            OpenFile("NormalEngine (*.normal)\0.normal\0");
+            // OpenFile("NormalEngine (*.normal)\0.normal\0");
         }
         if (ImGui::MenuItem("Import", "CTRL+I"))
         {

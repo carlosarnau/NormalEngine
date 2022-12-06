@@ -45,7 +45,7 @@ bool ModuleFS::Init()
 	iluInit();
 
 	//Engine Scene Inicialize
-	TryLoadFromDisk("Assets/Street/Street environment_V01.FBX");
+	TryLoadFromDisk("Assets/Street/street2.FBX");
 	
 	return true;
 }

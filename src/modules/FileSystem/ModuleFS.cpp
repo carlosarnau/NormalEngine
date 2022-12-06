@@ -32,7 +32,6 @@ bool ModuleFS::Init()
 
 	jsons.push_back(json_parse_file("config.json"));
 
-	
 	if (jsons.back() == NULL)
 	{
 		jsons.back() = json_value_init_object();
@@ -52,8 +51,6 @@ bool ModuleFS::Init()
 }
 
 #include <fstream>
-
-
 
 bool WriteToDisk(const char* file_path, char* data, uint64_t size)
 {

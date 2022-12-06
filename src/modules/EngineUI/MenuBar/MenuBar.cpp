@@ -37,11 +37,11 @@ void MenuBar::Update()
         }
         if (ImGui::MenuItem("Save File", "CTRL+S")) 
         {
-            SaveFile();
+            //  App->window->Save();
         }
         if (ImGui::MenuItem("Open File", "CTRL+L")) 
         {
-            OpenFile();
+            //  App->window->Load();
         }
         if (ImGui::MenuItem("Import", "CTRL+I"))
         {
@@ -194,7 +194,7 @@ void MenuBar::SaveFile()
 
     GetSaveFileName(&ofn);
     if (fileName[0] != '\0')
-        //App->scene->SaveScene(&fileName[0]);
+        //  App->window->SaveScene(&fileName[0]);
 
     SetInactive();
 }
@@ -215,7 +215,7 @@ void MenuBar::OpenFile()
 
     GetOpenFileName(&ofn);
     if (fileName[0] != '\0')
-        //App->scene->LoadSceneFile(fileName);
+        //  App->scene->LoadSceneFile(fileName);
 
     SetInactive();
 }

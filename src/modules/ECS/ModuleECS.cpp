@@ -11,11 +11,8 @@ ModuleECS::~ModuleECS() {
 	
 }
 
-
 bool ModuleECS::Init()
 {
-
-
 	return true;
 }
 

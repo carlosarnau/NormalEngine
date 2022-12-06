@@ -182,7 +182,7 @@ void ModuleWindow::Load(JSON_Object* obj) {
 	SDL_SetWindowTitle(window, json_object_get_string(obj, "title"));
 }
 
-
+//	Engine theme
 void ModuleWindow::SetDarkThemeColors()
 {
 	auto& colors = ImGui::GetStyle().Colors;
@@ -214,4 +214,19 @@ void ModuleWindow::SetDarkThemeColors()
 	colors[ImGuiCol_TitleBg] = ImVec4{ 0.15f,0.1505f,0.151f,1.0f };
 	colors[ImGuiCol_TitleBgActive] = ImVec4{ 0.15f,0.1505f,0.151f,1.0f };
 	colors[ImGuiCol_TitleBgCollapsed] = ImVec4{ 0.15f,0.1505f,0.151f,1.0f };
+}
+
+std::string GetFileName(const char* file)
+{
+	std::string ret = file;
+
+	ret = ret.substr(ret.find_last_of("\\/") + 1);
+
+	const char* test = strrchr(ret.c_str(), '.');
+	if (test != NULL && test != nullptr)
+	{
+		std::string aux = test;
+		ret.erase(ret.length() - aux.length()).c_str();
+	}
+	return ret;
 }

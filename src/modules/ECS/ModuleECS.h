@@ -140,8 +140,6 @@ public:
 	update_status PostUpdate(float dt);
 
 	bool CleanUp();
-
-
 public:
 
 	void ReserveEntities(const uint64_t num_reserve) { entities.reserve(entities.capacity() + num_reserve); }

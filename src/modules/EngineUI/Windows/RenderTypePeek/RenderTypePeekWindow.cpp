@@ -50,9 +50,22 @@ void RenderPeekWindow::Update()
 			auto relativePath = std::filesystem::relative(path, s_AssetPath);
 			std::string filenameString = relativePath.filename().string();
 
-			icon = SDL_LoadBMP("Assets/Navigator/DirectoryIcon.png");
+			//	Charging folder and file icon
+			icon = SDL_LoadBMP("Assets/DirectoryIcon.bmp");
 
-			ImGui::ImageButton(icon, { thumbnailSize, thumbnailSize }, { 0,1 }, { 1,0 });
+			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
+			ImGui::ImageButton((ImTextureID)icon, {thumbnailSize, thumbnailSize}, {0,1}, {1,0});
+			ImGui::PopStyleColor();
+
+			//	Drag and drop
+			if (ImGui::BeginDragDropSource())
+			{
+				const wchar_t* itemPath = relativePath.c_str();
+				ImGui::SetDragDropPayload("CONTENT_BROWSER_ITEM", itemPath, wcslen(itemPath) * sizeof(wchar_t), ImGuiCond_Once);
+				ImGui::EndDragDropSource();
+			}
+
+			//	Accessing to folders and files
 			if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
 			{
 				if (directoryEntry.is_directory())

@@ -47,7 +47,7 @@ update_status ModuleECS::PostUpdate(float dt)
 
 bool ModuleECS::CleanUp()
 {
-	while (entities.size() > 0)
+	while (entities.size() > -1)
 		DeleteEntity(entities[0]->id);
 	entities.clear();
 	root.children.clear();

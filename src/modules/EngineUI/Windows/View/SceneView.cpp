@@ -6,11 +6,12 @@ void SceneView::Start()
 {
 	fb.Create(App->window->w, App->window->h);
 	App->renderer3D->hijack_framebuffer = &fb;
-	
 }
 
 void SceneView::Update()
 {
+	extern const std::filesystem::path g_AssetPath;
+
 	// Game view
 	ImGui::Begin("Game", &active);
 
@@ -24,6 +25,17 @@ void SceneView::Update()
 	scenesize.y = hh;
 	scenesize.x = ww;
 	ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
+		{
+			const wchar_t* path = (const wchar_t*)payload->Data;
+			// TryLoadFromDisk(g_AssetPath);
+		}
+		ImGui::EndDragDropTarget();
+	}
+
 	ImGui::End();
 
 	// Action controls
@@ -61,7 +73,6 @@ void SceneView::Update()
 
 	ImGui::End();
 }
-
 
 void SceneView::CleanUp()
 {

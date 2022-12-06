@@ -22,7 +22,7 @@ void RenderPeekWindow::Update()
 	ImGui::Separator();
 
 	// Here starts the file system for Textures
-	if (m_CurrentDirectory != std::filesystem::path(s_AssetPath))
+	if (m_CurrentDirectory != std::filesystem::path(g_AssetPath))
 	{
 		ImGui::SetCursorPos(ImVec2(95, 30));
 		if (ImGui::Button("<--"))
@@ -44,10 +44,14 @@ void RenderPeekWindow::Update()
 
 		ImGui::Columns(columnCount, 0, false);
 
+		int i = 0;
+
 		for (auto& directoryEntry : std::filesystem::directory_iterator(m_CurrentDirectory))
 		{
+			ImGui::PushID(i++);
+
 			const auto& path = directoryEntry.path();
-			auto relativePath = std::filesystem::relative(path, s_AssetPath);
+			auto relativePath = std::filesystem::relative(path, g_AssetPath);
 			std::string filenameString = relativePath.filename().string();
 
 			//	Charging folder and file icon
@@ -61,7 +65,7 @@ void RenderPeekWindow::Update()
 			if (ImGui::BeginDragDropSource())
 			{
 				const wchar_t* itemPath = relativePath.c_str();
-				ImGui::SetDragDropPayload("CONTENT_BROWSER_ITEM", itemPath, wcslen(itemPath) * sizeof(wchar_t), ImGuiCond_Once);
+				ImGui::SetDragDropPayload("CONTENT_BROWSER_ITEM", itemPath, (wcslen(itemPath) + 1) * sizeof(wchar_t));
 				ImGui::EndDragDropSource();
 			}
 
@@ -72,7 +76,10 @@ void RenderPeekWindow::Update()
 					m_CurrentDirectory /= path.filename();
 			}
 			ImGui::Text(filenameString.c_str());
+
 			ImGui::NextColumn();
+
+			ImGui::PopID();
 		}
 	}
 

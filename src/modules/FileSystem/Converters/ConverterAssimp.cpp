@@ -7,6 +7,7 @@
 #include <src/modules/Render/RendererTypes.h>
 #include <src/Application.h>
 
+//#include "../../ECS/ComponentsMove/CS_Transform.h"
 // Components for the exporters, not Converters
 #include <src/modules/ECS/ComponentsIncludeAll.h>
 
@@ -25,9 +26,12 @@ void InitializeTransform(C_Transform* ctrans, const aiMatrix4x4& mat) {
 	aiQuaternion r;
 	mat.Decompose(s, r, t);
 	Quat rot = Quat(r.x, r.y, r.z, r.w);
+	//Quat rot = Quat(0, 0, 0, 1);
 	float3 scale = float3(s.x, s.y, s.z);
 	float3 pos = float3(t.x, t.y, t.z);
 	ctrans->local_mat = float4x4::FromTRS(pos, rot, scale);
+
+
 	ctrans->valid_tree = false;
 }
 
@@ -53,6 +57,7 @@ void TraverseAiNodes(const aiScene* scene, const char* parent_path, const aiNode
 	for (int i = 0; i < node->mNumChildren; ++i)
 		TraverseAiNodes(scene, parent_path, node->mChildren[i], get);
 	
+	ctrans->PropagateChanges();
 }
 
 void ConvertAssimpScene(const TempIfStream& file) {

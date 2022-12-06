@@ -22,6 +22,8 @@ void C_Transform::DrawInspector()
 {
 	bool changed = false;
 
+	
+
 	sprintf(headerid, "Transform##%llu", id.id);
 	if (ImGui::CollapsingHeader(headerid)) {
 

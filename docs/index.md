@@ -6,7 +6,7 @@
 
 # Normal Engine
 Normal Engine is a free to use Game Engine made in c++ with the basic tools to create a game. Made by students from CITM Barcelona for the Game Engines subject. <br />
-To access to the webpage of the engine, click the following link: [Webpage](https://fakefarreraspol.github.io/NormalEngine/)
+To access to the webpage of the engine, click the following link: [Webpage](https://github.com/carlosarnau/NormalEngine)
 
 <br>
 

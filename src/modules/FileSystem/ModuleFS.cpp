@@ -19,15 +19,13 @@ bool ModuleFS::Init()
 	(*strrchr(execpath, '\\')) = '\0';
 
 	char temp[1024];
-	sprintf(temp, "mkdir -p %s\\Game\\Assets\\Prefabs", execpath);
+	sprintf(temp, "mkdir TempAssets %s\\Game\\Assets\\Prefabs", execpath);
 	system(temp);
-	sprintf(temp, "mkdir -p %s\\Game\\Assets\\Materials", execpath);
+	sprintf(temp, "mkdir TempAssets %s\\Game\\Assets\\Materials", execpath);
 	system(temp);
-	sprintf(temp, "mkdir -p %s\\Game\\Assets\\Textures", execpath);
+	sprintf(temp, "mkdir TempAssets %s\\Game\\Assets\\Textures", execpath);
 	system(temp);
-	sprintf(temp, "mkdir -p %s\\Game\\Assets\\Meshes", execpath);
-	system(temp);
-	sprintf(temp, "mkdir -p %s\\Game\\Assets\\Other", execpath);
+	sprintf(temp, "mkdir TempAssets %s\\Game\\Assets\\Meshes", execpath);
 	system(temp);
 
 	InitConverters();
@@ -48,7 +46,6 @@ bool ModuleFS::Init()
 
 	//Engine Scene Inicialize
 	TryLoadFromDisk("Assets/Street/street2.FBX");
-	TryLoadFromDisk("Assets/Other/Navigator/Folder.BMP");
 	
 	return true;
 }

@@ -80,7 +80,7 @@ bool ModuleWindow::Init()
 			//Get window surface
 			screen_surface = SDL_GetWindowSurface(window);
 
-			icon = SDL_LoadBMP("Assets/Other/Logo/NElogo.bmp");
+			icon = SDL_LoadBMP("Resources/Logo/NElogo.bmp");
 			if (icon != nullptr)
 			{
 				SDL_SetWindowIcon(window, icon);

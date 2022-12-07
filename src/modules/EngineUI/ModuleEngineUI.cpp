@@ -35,7 +35,7 @@ void StartImGUI(Application* App)
 
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;               // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;                   // Enable Docking
-    io.FontDefault = io.Fonts->AddFontFromFileTTF("Assets/Fonts/Roboto/Roboto-Regular.ttf", 14.0f);
+    io.FontDefault = io.Fonts->AddFontFromFileTTF("Resources/Fonts/Roboto/Roboto-Regular.ttf", 14.0f);
     ImGui::StyleColorsDark();
 
     style.GrabRounding = 3.0f;

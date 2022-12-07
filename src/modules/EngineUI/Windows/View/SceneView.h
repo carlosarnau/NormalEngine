@@ -17,6 +17,6 @@ public:
 		Scene,
 		Game,
 	};
-	View engineView = Game;
+	View engineView = Scene;
 };
 

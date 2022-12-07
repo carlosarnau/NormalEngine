@@ -12,30 +12,30 @@ void SceneView::Update()
 {
 	extern const std::filesystem::path g_AssetPath;
 
-
-	ImVec2 scenesize = { (float)fb.attachment.w, (float)fb.attachment.h };
-	float ww = ImGui::GetContentRegionAvail().x;
-	float hh = ImGui::GetContentRegionAvail().y;
-	scenesize.y = hh;
-	scenesize.x = ww;
-
-
-
 	// Game view
 	ImGui::Begin("Game", &active);
 	if (engineView == Game)
 	{
-		
+		ImVec2 scenesize = { (float)fb.attachment.w, (float)fb.attachment.h };
+		float ww = ImGui::GetContentRegionAvail().x;
+		float hh = ImGui::GetContentRegionAvail().y;
+		scenesize.y = hh;
+		scenesize.x = ww;
+
 		ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
 	}
-	
 	ImGui::End();
 
 	// Edito view
 	ImGui::Begin(name.c_str(), &active);
 	if (engineView == Scene)
 	{
-		
+		ImVec2 scenesize = { (float)fb.attachment.w, (float)fb.attachment.h };
+		float ww = ImGui::GetContentRegionAvail().x;
+		float hh = ImGui::GetContentRegionAvail().y;
+		scenesize.y = hh;
+		scenesize.x = ww;
+
 		ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
 	}
 
@@ -54,7 +54,6 @@ void SceneView::Update()
 	// Action controls
 	ImGui::Begin("Action Controls", nullptr, ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoScrollbar);
 
-	ImGui::SetCursorPos(ImVec2(scenesize.x/2 - 68, 28));
 	// Start
 	if (ImGui::Button("Start", ImVec2(50, 20)))
 	{

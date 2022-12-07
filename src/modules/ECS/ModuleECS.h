@@ -8,7 +8,7 @@
 enum ComponentTypes {
 	CT_MeshRenderer,
 	CT_Transform,
-
+	CT_AABB,
 	CT_MAX
 };
 

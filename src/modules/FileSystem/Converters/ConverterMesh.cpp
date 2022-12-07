@@ -1,7 +1,10 @@
 #include "../Converters.h"
+#include "../../../helpers/C_AABB.h"
 #include <src/modules/Render/RendererTypes.h>
 
-void ConvertAssimpMesh(const aiMesh* aimesh, NIMesh& mesh) {
+#include <src/modules/ECS/ComponentsIncludeAll.h>
+
+void ConvertAssimpMesh(const aiMesh* aimesh, NIMesh& mesh, Entity* parent, Entity* GameObject) {
 	mesh.vertices.resize(aimesh->mNumVertices);
 	memcpy(mesh.vertices.data(), aimesh->mVertices, aimesh->mNumVertices * sizeof(float3));
 	
@@ -31,6 +34,13 @@ void ConvertAssimpMesh(const aiMesh* aimesh, NIMesh& mesh) {
 	}
 
 	// TODO: Base Color / Bounding Box / 
+	Entity* entityAux = App->ecs->AddEntity(GameObject->id);
+
+	C_AABB* component = entityAux->AddComponent<C_AABB>();
+	memcpy(entityAux->name, "aabb", sizeof(char) * 4);
+	AABB* aux = new AABB();
+	aux->SetFrom(mesh.vertices.data(), mesh.vertices.size());
+	component->aabb = aux;
 }
 
 

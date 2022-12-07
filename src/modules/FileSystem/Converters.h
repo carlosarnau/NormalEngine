@@ -8,6 +8,7 @@
 #include <libs/assimp/scene.h>
 #include "FSDataTypes.h"
 #include <src/modules/Render/RendererTypes.h>
+#include "src/modules/ECS/ModuleECS.h"
 
 std::vector<WatchedData> TryConvert(const TempIfStream& file, const char* path = nullptr);
 bool InitConverters();
@@ -20,7 +21,7 @@ bool AssimpCleanUp();
 
 void ConvertAssimpScene(const TempIfStream& file);
 // Meshes
-void ConvertAssimpMesh(const aiMesh* aimesh, NIMesh& mesh);
+void ConvertAssimpMesh(const aiMesh* aimesh, NIMesh& mesh, Entity* parent, Entity* GameObject = NULL);
 
 // Materials
 void ConvertAssimpMaterial(const aiMaterial* aimat, const char* parent_path, Material& mat);

@@ -42,6 +42,9 @@
 #include "Triangle.h"
 #include "Capsule.h"
 
+#include <libs/glew/include/GL/glew.h>
+#include <gl/GL.h>
+
 #include "../Math/float4x4_neon.h"
 
 #ifdef MATH_GRAPHICSENGINE_INTEROP
@@ -54,7 +57,21 @@ AABB::AABB(const vec &minPoint_, const vec &maxPoint_)
 :minPoint(minPoint_), maxPoint(maxPoint_)
 {
 }
+void AABB::Draw()
+{
+	glColor3f(1, 0, 0);
+	LineSegment* drawSegment;
+	for (int i = 0; i <= 11; i++) {
+		drawSegment = &Edge(i);
 
+		glBegin(GL_LINES);
+
+		glVertex3f(drawSegment->a.x, drawSegment->a.y, drawSegment->a.z);
+		glVertex3f(drawSegment->b.x, drawSegment->b.y, drawSegment->b.z);
+		glEnd();
+	}
+	glColor3f(1, 1, 1);
+}
 AABB::AABB(const OBB &obb)
 {
 	SetFrom(obb);

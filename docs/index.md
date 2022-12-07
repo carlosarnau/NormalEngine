@@ -1,5 +1,4 @@
-<p align="center">
-  <img width="480" height="140" src="https://github.com/carlosarnau/NormalEngine/blob/develop/docs/normalengine-logo.jpg"> <br />
+<img width="480" height="140" src="https://github.com/carlosarnau/NormalEngine/blob/develop/docs/normalengine-logo.jpg"> <br />
 
 <br>
 

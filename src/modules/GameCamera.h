@@ -19,10 +19,10 @@ public:
 	void Move(const vec3& Movement);
 	float* GetViewMatrix();
 
-	
-
 	Frustum frustum;
 	float3 bb_frustum[8];
+	float3 newposition;
+
 private:
 
 	void CalculateViewMatrix();

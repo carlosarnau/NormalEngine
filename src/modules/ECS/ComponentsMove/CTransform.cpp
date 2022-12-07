@@ -78,4 +78,16 @@ void C_Transform::DrawInspector()
 
 		PropagateChanges();
 	}
+
+	ImGui::Begin("Camera Controls");
+	//
+	//ImGui::DragFloat3("Position", newposition.ptr());
+	//
+	//ImGui::DragFloat3("Rotation", newposition.ptr());
+	//
+	ImGui::End();
+
+	//X = newposition.x;
+	//Y = newposition.y;
+	//Z = newposition.z;
 }

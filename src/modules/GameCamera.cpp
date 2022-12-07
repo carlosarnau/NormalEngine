@@ -54,7 +54,6 @@ bool GameCamera::CleanUp()
 	return true;
 }
 
-
 // -----------------------------------------------------------------
 update_status GameCamera::Update(float dt)
 {
@@ -65,7 +64,7 @@ update_status GameCamera::Update(float dt)
 	
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
-
+	
 	return UPDATE_CONTINUE;
 }
 
@@ -99,7 +98,6 @@ void GameCamera::LookAt(const vec3& Spot)
 
 	CalculateViewMatrix();
 }
-
 
 // -----------------------------------------------------------------
 void GameCamera::Move(const vec3& Movement)

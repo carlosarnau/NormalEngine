@@ -7,6 +7,7 @@
 #include <src/modules/ModuleInput.h>
 #include <src/modules/Render/ModuleRenderer3D.h>
 #include <src/modules/ModuleCamera3D.h>
+#include <src/modules/GameCamera.h>
 #include <src/modules/EngineUI/ModuleEngineUI.h>
 #include <src/modules/FileSystem/ModuleFS.h>
 #include <src/modules/ECS/ModuleECS.h>
@@ -21,6 +22,7 @@ public:
 	ModuleInput* input;
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
+	GameCamera* GameCam;
 	ModuleEngineUI* engine_ui;
 	ModuleFS* fs;
 	ModuleECS* ecs; // = &_ecs;

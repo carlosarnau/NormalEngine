@@ -247,6 +247,9 @@
     <ClCompile Include="src\modules\ECS\ComponentsRender\C_MeshRenderer.cpp">
       <Filter>Modules\ECS\ComponentsRender</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\GameCamera.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h">
@@ -617,6 +620,9 @@
     </ClInclude>
     <ClInclude Include="src\modules\ECS\ComponentsRender\ECS_RendererTypes.h">
       <Filter>Modules\ECS\ComponentsRender</Filter>
+    </ClInclude>
+    <ClInclude Include="src\modules\GameCamera.h">
+      <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

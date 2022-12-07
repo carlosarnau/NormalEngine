@@ -49,4 +49,11 @@ public:
 	std::unordered_map<uint64_t, GPUMat> materials;
 
 	GPUFBO* hijack_framebuffer = nullptr;
+
+	enum camera
+	{
+		SCENE,
+		GAMEPLAY,
+	};
+	camera gcam = SCENE;
 };

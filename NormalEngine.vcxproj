@@ -86,6 +86,7 @@
     <ClCompile Include="src\modules\FileSystem\Converters\ConverterAssimp.cpp" />
     <ClCompile Include="src\modules\FileSystem\Converters\ConverterMaterial.cpp" />
     <ClCompile Include="src\modules\FileSystem\ModuleFS.cpp" />
+    <ClCompile Include="src\modules\GameCamera.cpp" />
     <ClCompile Include="src\modules\ModuleCamera3D.cpp" />
     <ClCompile Include="src\modules\ModuleInput.cpp" />
     <ClCompile Include="src\modules\Render\ModuleRenderer3D.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="src\modules\FileSystem\FSDataTypes.h" />
     <ClInclude Include="src\modules\FileSystem\Converters.h" />
     <ClInclude Include="src\modules\FileSystem\ModuleFS.h" />
+    <ClInclude Include="src\modules\GameCamera.h" />
     <ClInclude Include="src\modules\Module.h" />
     <ClInclude Include="src\modules\ModuleCamera3D.h" />
     <ClInclude Include="src\modules\ModuleInput.h" />

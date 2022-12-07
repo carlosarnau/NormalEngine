@@ -1,7 +1,7 @@
 #include "SceneView.h"
 #include <src/Application.h>
 #include <glew/include/GL/glew.h>
-
+//#include "../../../Render/ModuleRenderer3D.h"
 void SceneView::Start()
 {
 	fb.Create(App->window->w, App->window->h);
@@ -58,6 +58,7 @@ void SceneView::Update()
 	if (ImGui::Button("Start", ImVec2(50, 20)))
 	{
 		engineView = Game;
+		App->renderer3D->gcam = App->renderer3D->GAMEPLAY;
 	}
 	if (ImGui::IsItemHovered()) {
 		ImGui::SetTooltip("Start the action");
@@ -80,6 +81,7 @@ void SceneView::Update()
 	if (ImGui::Button("Stop", ImVec2(50, 20)))
 	{
 		engineView = Scene;
+		App->renderer3D->gcam = App->renderer3D->SCENE;
 		
 	}
 	if (ImGui::IsItemHovered())

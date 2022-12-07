@@ -12,6 +12,7 @@ Application::Application()
 	input = new ModuleInput();
 	renderer3D = new ModuleRenderer3D();
 	camera = new ModuleCamera3D();
+	GameCam = new GameCamera();
 	fs = new ModuleFS();
 	ecs = new ModuleECS();
 	engine_ui = new ModuleEngineUI();
@@ -19,6 +20,7 @@ Application::Application()
 	// Main Modules
 	AddModule(window);
 	AddModule(camera);
+	AddModule(GameCam);
 	AddModule(input);
 	
 	// Scenes

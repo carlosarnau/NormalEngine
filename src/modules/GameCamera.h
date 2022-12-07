@@ -3,7 +3,7 @@
 #include <src/helpers/Globals.h>
 #include <src/helpers/glmath.h>
 #include <src/helpers/MathGeoLib/MathGeoLib.h>
-
+//#include <src/modules/ECS/ComponentsMove/CS_Transform.h>
 class GameCamera : public Module
 {
 public:
@@ -30,7 +30,7 @@ private:
 public:
 
 	vec3 X, Y, Z, Position, Reference;
-
+	void ChangePosition(const vec3& pos);
 private:
 
 	mat4x4 ViewMatrix, ViewMatrixInverse;

@@ -2,6 +2,7 @@
 #include <src/Application.h>
 #include "GameCamera.h"
 #include <imgui.h>
+
 GameCamera::GameCamera(bool start_enabled) : Module("renderer")
 {
 	CalculateViewMatrix();
@@ -60,7 +61,7 @@ update_status GameCamera::Update(float dt)
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
 
-	LookAt(vec3(0, 0, 0));
+	
 	
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
@@ -126,4 +127,11 @@ void GameCamera::SetAspectRatio()
 	float aspect_ratio = ((1280 -100) / (720-100));		//Window aspect ratio
 	frustum.horizontalFov = 2.f * atanf(tanf(frustum.verticalFov * 0.5f) * aspect_ratio);
 	frustum.SetPerspective(frustum.horizontalFov, frustum.verticalFov);
+}
+
+void GameCamera::ChangePosition(const vec3& pos)
+{
+	Position.x = pos.x;
+	Position.y = pos.y;
+	Position.z = pos.z;
 }

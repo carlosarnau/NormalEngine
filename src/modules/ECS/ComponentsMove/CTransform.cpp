@@ -80,22 +80,15 @@ void C_Transform::DrawInspector()
 	}
 
 	ImGui::Begin("Camera Controls");
-	//
+
 	ImGui::DragFloat3("Position", newPosition.ptr());
-	//
-	ImGui::DragFloat3("Look to", newRotation.ptr());
-	//
-	if (ImGui::Button("Si", ImVec2(50, 20)))
+
+	ImGui::DragFloat3("Rotation", newRotation.ptr());
+	
+	if (ImGui::Button("Confirm", ImVec2(50, 20)))
 	{	
-		//App->GameCam->LookAt(vec3(newRotation.x, newRotation.y, newRotation.z));
 		App->GameCam->LookAt(vec3(newRotation.x, newRotation.y, newRotation.z));
 		App->GameCam->ChangePosition(vec3(newPosition.x, newPosition.y, newPosition.z));
 	}
 	ImGui::End();
-
-	
-	//App->GameCam->ChangePosition(vec3(newRotation.x, newRotation.y, newRotation.z));
-	//X = newposition.x;
-	//Y = newposition.y;
-	//Z = newposition.z;
 }

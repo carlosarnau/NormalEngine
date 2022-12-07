@@ -1,6 +1,0 @@
-1. https://www.youtube.com/watch?v=oESRecjuLNY --> Making it nicer (DONE)
-2. https://www.youtube.com/watch?v=aBuPmOGC7hU --> Files I (DONE)
-3. https://www.youtube.com/watch?v=uQljBVVb-lU --> Files II (DONE), not working
-3. https://www.youtube.com/watch?v=yjVSs1HtAng --> Drag and Drop (19:02)
-4. https://www.youtube.com/watch?v=zn7N7zHgCcs&list=PLlrATfBNZ98dC-V-N3m0Go4deliWHPFwT&index=93 --> Open/Save File Dialogs (13:19)
-5. https://www.youtube.com/watch?v=Pegb5CZuibU&list=PLlrATfBNZ98dC-V-N3m0Go4deliWHPFwT&index=94 --> Transformation

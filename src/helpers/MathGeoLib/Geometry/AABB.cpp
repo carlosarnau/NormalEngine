@@ -59,7 +59,7 @@ AABB::AABB(const vec &minPoint_, const vec &maxPoint_)
 }
 void AABB::Draw()
 {
-	glColor3f(1, 0, 0);
+	glColor3f(1, 0, 1);
 	LineSegment* drawSegment;
 	for (int i = 0; i <= 11; i++) {
 		drawSegment = &Edge(i);

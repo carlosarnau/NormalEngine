@@ -18,8 +18,9 @@ public:
 	bool AddLogsInConsole(const char* logStr);
 	void ClearLogs();
 
+	SDL_Surface* folder;
+	SDL_Surface* file;
+
 private:
 	std::filesystem::path m_CurrentDirectory;
-	SDL_Surface* dicons = SDL_LoadBMP("Assets/DirectoryIcon.bmp");
-	std::vector<char*> logs;
 };

@@ -54,10 +54,21 @@ void RenderPeekWindow::Update()
 			auto relativePath = std::filesystem::relative(path, g_AssetPath);
 			std::string filenameString = relativePath.filename().string();
 
-			//	Charging folder and file icon
+			// Charging icons for folder and files
+			folder = SDL_LoadBMP("Resources/Navigator/Folder.bmp");
+			file = SDL_LoadBMP("Resources/Navigator/File.bmp");
 
-			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
-			ImGui::ImageButton((ImTextureID)dicons, {thumbnailSize, thumbnailSize}, {0,1}, {1,0});
+			if (directoryEntry.is_directory())
+			{
+				ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.50f, 0.10f, 0.50f, 1.0f));		// As not working we used colors instead
+			}
+			else
+			{
+				ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.83f, 0.155f, 0.245f, 1.0f));	// As not working we used colors instead
+			}
+
+			// ImGui::ImageButton((ImTextureID)folder, {thumbnailSize, thumbnailSize}, {0,1}, {1,0});	// Not working
+			ImGui::Button(filenameString.c_str(), {thumbnailSize, thumbnailSize});
 			ImGui::PopStyleColor();
 
 			//	Drag and drop
@@ -74,7 +85,7 @@ void RenderPeekWindow::Update()
 				if (directoryEntry.is_directory())
 					m_CurrentDirectory /= path.filename();
 			}
-			ImGui::Text(filenameString.c_str());
+			// ImGui::Text(filenameString.c_str());	// Not needed if not working
 
 			ImGui::NextColumn();
 

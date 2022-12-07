@@ -1,17 +1,33 @@
-Normal Engine is made by students from CITM Barcelona for a Videogames Design and Development degree subject.  <br />
-Normal Engine is a free to use Game Engine made in c++ and has the basic tools to create a game. <br />
-Link to repository: [NormalEngine](https://github.com/carlosarnau/NormalEngine)
+<p align="center">
+  <img width="480" height="140" src="https://github.com/carlosarnau/NormalEngine/blob/develop/docs/normalengine-logo.jpg"> <br />
 
 <br>
 
-![](normalengine-logo.jpg)
 
-<br>
+# Normal Engine
+Normal Engine is a free to use Game Engine made in c++ with the basic tools to create a game. Made by students from CITM Barcelona for the Game Engines subject. <br />
+To access to the webpage of the engine, click the following link: [Webpage](https://fakefarreraspol.github.io/NormalEngine/)
+
 <br>
 
 
 ## Usage Guide
-The engine consists of a menu bar, located in the upper part of the screen, where you can control the engine, computer and object stats. Followed with a 3D area where you are able to deploy all the objects and navigate through them. <br />
+The engine consists of a menu bar, located in the upper part of the screen, where you can save and load your scene or even import files that you may need. In the middle of the screen we can find the viewport area where you are able to deploy objects and navigate through them making use of the different modules of the engine, which are 8 in total:
+- Configuration --> Manage the engine general configuration.
+- Hierarchy --> Visualize the objects displayed into the scene and navigate thorugh them.
+- Action Controls --> Start, Pause and Stop the action of the engine.
+- Assets --> Navigate and siplay the different asstes stored in your computer.
+- Console --> Follow the executions that happen in your engine.
+- Inspector --> Change your objects properties and else.
+
+<br>
+
+Also in the menu bar, to improve the communication in case of bugs and crashes we implemented a menu item called help with the possiblity of:
+- About --> A window will pop up with all the important information about the engine.
+- Go to GitHub --> The GitHub page of the engine will open in your browser.
+- Donwload latest --> In case you don't have the latest version of the engine, it will bring you to the releases page of the engine.
+- Documentation --> The GitHub page of the egnine will open in your browser in case you need deeper information about the engine.
+- Report a Bug --> In case you find a bug the GitHub issue page of the engine will open in your browser so you can label it. 
 
 <br>
 
@@ -19,46 +35,25 @@ The engine consists of a menu bar, located in the upper part of the screen, wher
 ## Controls
 ~~~~~~~~~~~~~~~
 
-File controls:
-- NEW SCENE --> Ctrl + N
-- OPEN SCENE --> Ctrl + 0
+Menu Actions:
 - SAVE --> Ctrl + S
-- SAVE AS --> Ctrl + Shift + S
-- STOP --> ESC key
+- SAVE FILE --> Ctrl + S
+- OPEN FILE --> Ctrl + Shift + S
+- IMPORT --> Ctrl + I
+- SHOW/HIDE WINDOWS --> Ctrl + H
+- DELETE SCENE --> Ctrl + D
+- EXIT --> Esc
 
-Edit Controls:
-- UNDO --> Ctrl + Z
-- REDO --> Ctrl + Y
-- CUT --> Ctrl + X
-- COPY --> Ctrl + C
-- PASTE --> Ctrl + V
-- SELECT ALL --> Ctrl + A
-- DESELECT ALL --> Shift + D
-- SELECT CHILDREN --> Ctrl + C
-- INVERT SELECTION --> Ctrl + I
-- DUPLICATE --> Ctrl + D
-- PLAY --> Ctrl + P
-- PAUSE --> Ctrl + Shift + P
-
-Import Controls:
-- CONE --> Ctrl + 1
-- CUBE --> Ctrl + 2
-- CYLINDER --> Ctrl + 3
-- POLYHEDRON --> Ctrl + 4
-- PYRAMID --> Ctrl + 5
-- SPHERE --> Ctrl + 6
-- TORUS --> Ctrl + 7
-- HOUSE --> Ctrl + 8
-- TRAIN STATION --> Ctrl + 9
-
-Mouse controls:
+Mouse Controls:
 - LEFT CLICK --> Selection
+- RIGHT CLICK --> Rotate camera
 
-Camera controls:
-- Movement --> Right Click + WASD and Right Click + R/F (Up/Down)
-- Movement Speed x2 --> Shift
-- Zoom --> Mouse Wheel
-- Rotate --> LeftAlt + Left Click or Only Right Click
+Camera Controls:
+- MOVEMENT --> Right Click + WASD and Right Click + R/V (Up/Down)
+- MOVEMENT SPEED x2 --> Shift
+- ZOOM --> Mouse Wheel
+- FOCUS ON OBJECT --> Right Click + F
+
 ~~~~~~~~~~~~~~~
 
 <br>
@@ -70,7 +65,6 @@ Camera controls:
 
 <br>
 
-
 ## Additional Functionalities
 No additional funcionalities yet.
 
@@ -78,16 +72,19 @@ No additional funcionalities yet.
 
 
 ## Additional Comments
-No additional comments yet.
+### Issues solved: <br>
+ISSUE #1: When working with objects in the viewport the engine crashed every time at exit, fortunatelly the error was in an overflow over an array, so we were able to fix it.
+
+### Issues not solved: <br>
+ISSUE #2: At implementing the assets folder both folders icons visulization and drag and drop didn't work at all.
 
 <br>
 
 
 ## License
-
 MIT License <br /> <br />
 
-Copyright (c) 2022 Pol <br /> <br />
+Copyright (c) 2022 Pol  <br /> <br />
 
 Permission is hereby granted, free of charge, to any person obtaining a copy <br />
 of this software and associated documentation files (the "Software"), to deal <br />

@@ -77,6 +77,9 @@ ISSUE #1: When working with objects in the viewport the engine crashed every tim
 
 ### Issues not solved: <br>
 ISSUE #2: At implementing the assets folder both folders icons visulization and drag and drop didn't work at all.
+ISSUE #3: AABB geometry is not displaying and working correclty.
+ISSUE #4: Drag and drop crashes at displaying FBX files, to aboid that we deactivate it.
+ISSUE #5: Save and Load with custom file format is not working correctly, and either accept fbx files.
 
 <br>
 

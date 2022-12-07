@@ -54,12 +54,18 @@ void SceneView::Update()
 	// Action controls
 	ImGui::Begin("Action Controls", nullptr, ImGuiWindowFlags_NoScrollWithMouse | ImGuiWindowFlags_NoScrollbar);
 
+	ImVec2 scenesize = { (float)fb.attachment.w, (float)fb.attachment.h };
+	float ww = ImGui::GetContentRegionAvail().x;
+	float hh = ImGui::GetContentRegionAvail().y;
+	scenesize.y = hh;
+	scenesize.x = ww;
+
 	// Start
+	ImGui::SetCursorPos(ImVec2(scenesize.x / 2 - 68, 28));
 	if (ImGui::Button("Start", ImVec2(50, 20)))
 	{
 		engineView = Game;
 		App->renderer3D->gcam = App->renderer3D->GAMEPLAY;
-		
 	}
 	if (ImGui::IsItemHovered()) {
 		ImGui::SetTooltip("Start the action");

@@ -42,8 +42,6 @@ struct NIMesh {
 	GPUMesh LoadToGPU();
 };
 
-
-
 struct GPUTex {
 	uint32_t img_id;
 	uint32_t w, h;
@@ -63,8 +61,6 @@ struct Texture {
 
 	GPUTex LoadToGPU() const;
 };
-
-
 
 struct MaterialState {
 	bool cull_faces = true;
@@ -110,16 +106,6 @@ struct Material {
 };
 
 struct GPUFBO {
-	GLuint framebuffer_id;
-	GLuint renderbuffer_id;
-	GPUTex attachment;
-
-	void Create(int w, int h);
-	void Destroy();
-	void Bind();
-};
-
-struct GPUFBO1 {
 	GLuint framebuffer_id;
 	GLuint renderbuffer_id;
 	GPUTex attachment;

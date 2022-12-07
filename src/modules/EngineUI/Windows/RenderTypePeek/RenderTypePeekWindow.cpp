@@ -55,10 +55,9 @@ void RenderPeekWindow::Update()
 			std::string filenameString = relativePath.filename().string();
 
 			//	Charging folder and file icon
-			icon = SDL_LoadBMP("Assets/DirectoryIcon.bmp");
 
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
-			ImGui::ImageButton((ImTextureID)icon, {thumbnailSize, thumbnailSize}, {0,1}, {1,0});
+			ImGui::ImageButton((ImTextureID)dicons, {thumbnailSize, thumbnailSize}, {0,1}, {1,0});
 			ImGui::PopStyleColor();
 
 			//	Drag and drop

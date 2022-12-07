@@ -27,6 +27,8 @@ bool ModuleFS::Init()
 	system(temp);
 	sprintf(temp, "mkdir -p %s\\Game\\Assets\\Meshes", execpath);
 	system(temp);
+	sprintf(temp, "mkdir -p %s\\Game\\Assets\\Other", execpath);
+	system(temp);
 
 	InitConverters();
 
@@ -46,6 +48,7 @@ bool ModuleFS::Init()
 
 	//Engine Scene Inicialize
 	TryLoadFromDisk("Assets/Street/street2.FBX");
+	TryLoadFromDisk("Assets/Other/Navigator/Folder.BMP");
 	
 	return true;
 }

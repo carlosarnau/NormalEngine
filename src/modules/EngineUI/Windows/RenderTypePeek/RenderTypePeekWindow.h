@@ -15,5 +15,5 @@ public:
 
 private:
 	std::filesystem::path m_CurrentDirectory;
-	SDL_Surface* icon;
+	SDL_Surface* dicons = SDL_LoadBMP("Assets/DirectoryIcon.bmp");
 };

@@ -59,6 +59,7 @@ void SceneView::Update()
 	{
 		engineView = Game;
 		App->renderer3D->gcam = App->renderer3D->GAMEPLAY;
+		
 	}
 	if (ImGui::IsItemHovered()) {
 		ImGui::SetTooltip("Start the action");

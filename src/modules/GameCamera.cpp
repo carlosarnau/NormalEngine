@@ -10,7 +10,7 @@ GameCamera::GameCamera(bool start_enabled) : Module("renderer")
 	Y = vec3(0.0f, 1.0f, 0.0f);
 	Z = vec3(0.0f, 0.0f, 1.0f);
 
-	Position = vec3(10.0f, 0.0f, 50.0f);
+	Position = vec3(10.0f, 10.0f, 50.0f);
 	Reference = vec3(0.0f, 0.0f, 0.0f);
 }
 
@@ -40,7 +40,7 @@ update_status GameCamera::Update(float dt)
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
 
-	
+	LookAt(vec3(0, 0, 0));
 	
 	// Recalculate matrix -------------
 	CalculateViewMatrix();

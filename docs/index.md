@@ -16,7 +16,8 @@ The engine consists of a menu bar, located in the upper part of the screen, wher
 - Configuration --> Manage the engine general configuration.
 - Hierarchy --> Visualize the objects displayed into the scene and navigate thorugh them.
 - Action Controls --> Start, Pause and Stop the action of the engine.
-- Assets --> Navigate and siplay the different asstes stored in your computer.
+- Camera Controls --> Rotate and move the camera in Game mode.
+- Assets --> Navigate and siplay the different asstes stored in your computer. As we had problems showing the folder and file icons we used colors to identify different archieve formats. Red for the FBX files and purple for the folders.
 - Console --> Follow the executions that happen in your engine.
 - Inspector --> Change your objects properties and else.
 
@@ -80,7 +81,7 @@ ISSUE #2: At implementing the assets folder both folders icons visulization and 
 ISSUE #3: AABB geometry is not displaying and working correclty.
 ISSUE #4: Drag and drop crashes at displaying FBX files, to aboid that we deactivate it.
 ISSUE #5: Save and Load with custom file format is not working correctly, and either accept fbx files.
-  
+
 <br>
 
 

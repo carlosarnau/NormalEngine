@@ -12,6 +12,26 @@ GameCamera::GameCamera(bool start_enabled) : Module("renderer")
 
 	Position = vec3(10.0f, 10.0f, 50.0f);
 	Reference = vec3(0.0f, 0.0f, 0.0f);
+
+	frustum.nearPlaneDistance = 0.5f;
+	frustum.farPlaneDistance = 1000.0f;
+
+	frustum.type = FrustumType::PerspectiveFrustum;
+	frustum.projectiveSpace = FrustumProjectiveSpace::FrustumSpaceGL;
+	frustum.handedness = FrustumHandedness::FrustumRightHanded;
+
+	frustum.SetWorldMatrix(float3x4::identity);
+
+	frustum.verticalFov = DegToRad(60.0f);
+	SetAspectRatio();
+
+	frustum.SetPerspective(frustum.horizontalFov, frustum.verticalFov);
+
+	frustum.pos = float3::zero;
+
+	frustum.Translate(vec(0.0f, 0.0f, 5.0f));
+
+	frustum.GetCornerPoints(bb_frustum);
 }
 
 GameCamera::~GameCamera()
@@ -33,6 +53,7 @@ bool GameCamera::CleanUp()
 
 	return true;
 }
+
 
 // -----------------------------------------------------------------
 update_status GameCamera::Update(float dt)
@@ -100,4 +121,11 @@ void GameCamera::CalculateViewMatrix()
 {
 	ViewMatrix = mat4x4(X.x, Y.x, Z.x, 0.0f, X.y, Y.y, Z.y, 0.0f, X.z, Y.z, Z.z, 0.0f, -dot(X, Position), -dot(Y, Position), -dot(Z, Position), 1.0f);
 	ViewMatrixInverse = inverse(ViewMatrix);
+}
+
+void GameCamera::SetAspectRatio()
+{
+	float aspect_ratio = ((1280 -100) / (720-100));		//Window aspect ratio
+	frustum.horizontalFov = 2.f * atanf(tanf(frustum.verticalFov * 0.5f) * aspect_ratio);
+	frustum.SetPerspective(frustum.horizontalFov, frustum.verticalFov);
 }

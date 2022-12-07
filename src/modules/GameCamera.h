@@ -22,11 +22,11 @@ public:
 	
 
 	Frustum frustum;
-
+	float3 bb_frustum[8];
 private:
 
 	void CalculateViewMatrix();
-
+	void SetAspectRatio();
 public:
 
 	vec3 X, Y, Z, Position, Reference;

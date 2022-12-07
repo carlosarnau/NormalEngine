@@ -4,7 +4,7 @@
 #include "src/modules/EngineUI/Windows/Transform/TransformWindow.h"
 #include <filesystem>
 
-constexpr char* g_AssetPath = "Assets";
+const std::filesystem::path g_AssetPath = "Assets";
 
 class RenderPeekWindow : UI_Item {
 public:

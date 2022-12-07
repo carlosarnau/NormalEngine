@@ -118,3 +118,13 @@ struct GPUFBO {
 	void Destroy();
 	void Bind();
 };
+
+struct GPUFBO1 {
+	GLuint framebuffer_id;
+	GLuint renderbuffer_id;
+	GPUTex attachment;
+
+	void Create(int w, int h);
+	void Destroy();
+	void Bind();
+};

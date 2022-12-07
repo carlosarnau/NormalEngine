@@ -5,6 +5,9 @@ Application::Application()
 	InitTimer();
 	CalibrateTimer();
 
+	// The order of calls is very important!
+	// Modules will Init() Start() and Update in this order
+	// They will CleanUp() in reverse order
 	window = new ModuleWindow();
 	input = new ModuleInput();
 	renderer3D = new ModuleRenderer3D();
@@ -12,9 +15,6 @@ Application::Application()
 	fs = new ModuleFS();
 	ecs = new ModuleECS();
 	engine_ui = new ModuleEngineUI();
-	// The order of calls is very important!
-	// Modules will Init() Start() and Update in this order
-	// They will CleanUp() in reverse order
 
 	// Main Modules
 	AddModule(window);
@@ -29,7 +29,6 @@ Application::Application()
 
 	// UI Even further last!
 	AddModule(engine_ui);
-
 	AddModule(fs);
 }
 

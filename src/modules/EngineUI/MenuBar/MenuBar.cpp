@@ -55,6 +55,7 @@ void MenuBar::Update()
         }
         if (ImGui::MenuItem("Exit"))
         {
+            exit(0);
         }
         
         ImGui::EndMenu();

@@ -83,7 +83,6 @@ void Application::PrepareUpdate()
 void Application::FinishUpdate()
 {
 	//Do here object move?
-
 }
 
 update_status Application::Update()

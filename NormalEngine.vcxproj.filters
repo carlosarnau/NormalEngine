@@ -250,6 +250,9 @@
     <ClCompile Include="src\modules\GameCamera.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
+    <ClCompile Include="src\modules\EngineUI\GUImanager\GUImanager.cpp">
+      <Filter>Modules\UI\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application.h">
@@ -624,6 +627,9 @@
     <ClInclude Include="src\modules\GameCamera.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="src\modules\EngineUI\GUImanager\GUImanager.h">
+      <Filter>Modules\UI\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\helpers\MathGeoLib\Math\float2.inl">
@@ -690,6 +696,9 @@
     </Filter>
     <Filter Include="Modules\ECS\ComponentsRender">
       <UniqueIdentifier>{16e262f1-78f9-475e-b404-08a9337a40f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\UI\GUI">
+      <UniqueIdentifier>{43a70318-3240-470e-885a-154ae9c8f655}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

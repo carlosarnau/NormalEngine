@@ -17,11 +17,23 @@ void GUImanager::Update()
 {
 }
 
-void GUImanager::Button()
+void GUImanager::CreateCanvas()
 {
 }
 
-void GUImanager::Image()
+void GUImanager::CreateBaseElement()
+{
+}
+
+void GUImanager::CreateButton()
+{
+}
+
+void GUImanager::CreateLabel()
+{
+}
+
+void GUImanager::CreateImage()
 {
 }
 

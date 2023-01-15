@@ -187,7 +187,7 @@ void MenuBar::SaveFile()
     ZeroMemory(&ofn, sizeof(ofn));
     ofn.lStructSize = sizeof(OPENFILENAME);
     ofn.hwndOwner = NULL;
-    ofn.lpstrFilter = "DrunkEngine Scenes (*.drnk*)\0*.drnk*\0";
+    ofn.lpstrFilter = "NormalEngine Scenes (*.drnk*)\0*.drnk*\0";
     ofn.lpstrFile = fileName;
     ofn.nMaxFile = MAX_PATH;
     ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOCHANGEDIR;
@@ -208,7 +208,7 @@ void MenuBar::OpenFile()
     ZeroMemory(&ofn, sizeof(ofn));
     ofn.lStructSize = sizeof(OPENFILENAME);
     ofn.hwndOwner = NULL;
-    ofn.lpstrFilter = "DrunkEngine Scenes (*.drnk*)\0*.drnk*\0";
+    ofn.lpstrFilter = "NormalEngine Scenes (*.drnk*)\0*.drnk*\0";
     ofn.lpstrFile = fileName;
     ofn.nMaxFile = MAX_PATH;
     ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOCHANGEDIR;

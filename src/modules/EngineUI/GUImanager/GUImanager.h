@@ -8,7 +8,10 @@ public:
 
 	void Init();
 	void Update();
-	void Button();
-	void Image();
+	void GUImanager::CreateCanvas();
+	void GUImanager::CreateBaseElement();
+	void GUImanager::CreateButton();
+	void GUImanager::CreateLabel();
+	void GUImanager::CreateImage();
 	void CleanUp();
 };

@@ -36,6 +36,13 @@ void SceneView::Update()
 		scenesize.y = hh;
 		scenesize.x = ww;
 
+		glBegin(GL_QUADS);
+		glVertex3f(-45, 30, -50);
+		glVertex3f(-10, 30, -50);
+		glVertex3f(-10, 5, -50);
+		glVertex3f(-45, 5, -50);
+		glEnd();
+
 		ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
 	}
 

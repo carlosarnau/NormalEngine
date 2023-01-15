@@ -148,9 +148,16 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 
 	glMatrixMode(GL_MODELVIEW);
 
-	if(gcam == SCENE) glLoadMatrixf(App->camera->GetViewMatrix());
+	if (gcam == SCENE)
+	{
+		glLoadMatrixf(App->camera->GetViewMatrix());
+		glOrtho(1.0f, 1, -1, 1, 0.1f, 50);
+	}
 
-	if(gcam == GAMEPLAY) glLoadMatrixf(App->GameCam->GetViewMatrix());
+	if (gcam == GAMEPLAY) {
+		glLoadMatrixf(App->GameCam->GetViewMatrix());
+		glOrtho(-1.0f, 1, -1, 1, 0.1f, 50);
+	}
 
 	return UPDATE_CONTINUE;
 }

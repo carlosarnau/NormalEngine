@@ -64,7 +64,8 @@ update_status GameCamera::Update(float dt)
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
 
-	// glOrtho(0.0f, 640, 480, 0.0f, 1.0f, -1.0f);		// Works weird as fuck
+	// glOrtho(1.0f, 640, 480, 0.0f, 1.0f, -1.0f);		// Works weird as fuck
+	
 	
 	return UPDATE_CONTINUE;
 }

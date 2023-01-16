@@ -25,7 +25,10 @@ void ComponentInspector::Update() {
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.50f, 0.10f, 0.50f, 1.0f));
 
 	ImGui::SetCursorPos(ImVec2(15, 75));
-	ImGui::Button("Canvas", { thumbnailSizeX, thumbnailSizeY });
+	if (ImGui::Button("Canvas", { thumbnailSizeX, thumbnailSizeY }))
+	{
+		CanvasCreation();
+	};
 
 	ImGui::SetCursorPos(ImVec2(15, 100));
 	ImGui::Button("Button", { thumbnailSizeX, thumbnailSizeY });
@@ -91,4 +94,13 @@ void ComponentInspector::Update() {
 	}
 
 	ImGui::End();
+}
+
+void ComponentInspector::CanvasCreation()
+{
+	glBegin(GL_QUADS);
+	glVertex3f(-45, 5, 50);
+	glVertex3f(-10, 5, 50);
+	glVertex3f(-10, 30, 50);
+	glVertex3f(-45, 30, 50);
 }

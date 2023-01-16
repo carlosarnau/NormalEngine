@@ -14,4 +14,5 @@ struct ComponentInspector : UI_Item {
 
 	void UpdateRMMenu();
 	void Update();
+	void CanvasCreation();
 };

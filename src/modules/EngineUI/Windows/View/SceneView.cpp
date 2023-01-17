@@ -35,14 +35,24 @@ void SceneView::Update()
 		float hh = ImGui::GetContentRegionAvail().y;
 		scenesize.y = hh;
 		scenesize.x = ww;
-		
+
+		ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
+
 		glBegin(GL_QUADS);
+		glColor3ub(149, 149, 149);
 		glVertex3f(-45, 5, 50);
 		glVertex3f(-10, 5, 50);
 		glVertex3f(-10, 30, 50);
 		glVertex3f(-45, 30, 50);
+		glEnd();
 
-		ImGui::Image((ImTextureID)fb.attachment.img_id, scenesize, { 0,1 }, { 1,0 });
+		glBegin(GL_QUADS);
+		glColor3ub(3, 37, 76);
+		glVertex3f(-30, 14, 51);
+		glVertex3f(-20, 14, 51);
+		glVertex3f(-20, 18, 51);
+		glVertex3f(-30, 18, 51);
+		glEnd();
 	}
 
 	if (ImGui::BeginDragDropTarget())

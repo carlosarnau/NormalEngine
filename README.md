@@ -137,6 +137,7 @@ ISSUE #5: Save and Load with custom file format is not working correctly, and ei
 ISSUE #6: When creating a method to create GUI elements inside the engine we take into account different options but we finally ended up with printing them with OpenGL, given that we had a lot of problems beacuse we couldn't make a system to manage them, insted we printed them ath the beginning. <br />
 ISSUE #7: Related with the way of printing 2D assets inside a 3D environment we dealed that while using an orthogonal camera the different GUI elements didn't show. In half the path of the assignment we realised that printing things in OpenGL was to complicated so we forked Wiwa Engine (our coleages engine) to try to implement them using assets and methods created last year.<br />
 ISSUE #8: Continuing with the last issue in the new engine we realised that was to difficult given that we used methods that were none similiar with Wiwa Engine so we returned back to NormalEngine to try to make something work.<br />
+ISSUE #8: When applying the OpenGL colors changed the color filter of the whole set, netiher erasing them at finish worked.
 
 <br>
 

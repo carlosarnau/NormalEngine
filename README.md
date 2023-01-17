@@ -8,18 +8,60 @@
 Normal Engine is a free to use Game Engine made in c++ with the basic tools to create a game. Made by students from CITM Barcelona for the Game Engines subject. <br />
 To access to the webpage of the engine, click the following link: [Webpage](https://carlosarnau.github.io/NormalEngine/)
 
+<img src="https://github.com/carlosarnau/NormalEngine/blob/807aff33e11c39a86fd219652b100eb42b777834/docs/1.jpg"> <br />
+
 <br>
 
 
 ## Usage Guide
 The engine consists of a menu bar, located in the upper part of the screen, where you can save and load your scene or even import files that you may need. In the middle of the screen we can find the viewport area where you are able to deploy objects and navigate through them making use of the different modules of the engine, which are 8 in total:
 - Configuration --> Manage the engine general configuration.
-- Hierarchy --> Visualize the objects displayed into the scene and navigate thorugh them.
+
+<img width="210" height="702" src="https://github.com/carlosarnau/NormalEngine/blob/65c44c9a1c9792ce431bf42b0b7bfed090c56f79/docs/7.jpg"> <br />
+<img width="210" height="702" src="https://github.com/carlosarnau/NormalEngine/blob/65c44c9a1c9792ce431bf42b0b7bfed090c56f79/docs/7.jpg"> <br />
+
+
+
+- Hierarchy --> Visualize the objects displayed into the scene and navigate through them.
+
+<img width="210" height="702" src="https://github.com/carlosarnau/NormalEngine/blob/65c44c9a1c9792ce431bf42b0b7bfed090c56f79/docs/6.jpg"> <br />
+
+
+
 - Action Controls --> Start, Pause and Stop the action of the engine.
+
+<img width="210" height="702" src="https://github.com/carlosarnau/NormalEngine/blob/65c44c9a1c9792ce431bf42b0b7bfed090c56f79/docs/6.jpg"> <br />
+
+
+
 - Camera Controls --> Rotate and move the camera in Game mode.
-- Assets --> Navigate and siplay the different asstes stored in your computer. As we had problems showing the folder and file icons we used colors to identify different archieve formats. Red for the FBX files and purple for the folders.
-- Console --> Follow the executions that happen in your engine.
+
+<img width="232" height="144" src="https://github.com/carlosarnau/NormalEngine/blob/807aff33e11c39a86fd219652b100eb42b777834/docs/9.jpg"> <br />
+
+
+
+- Assets --> Navigate and diplay the different asstes stored in your computer. As we had problems showing the folder and file icons we used colors to identify different archieve formats. Red for the FBX files and purple for the folders.
+
+<img width="840" height="254" src="https://github.com/carlosarnau/NormalEngine/blob/807aff33e11c39a86fd219652b100eb42b777834/docs/2.jpg"> <br />
+
+
+
+- Console --> Follow the executions that happen in your engine. (Not working propertly!)
+
+<img width="210" height="702" src="https://github.com/carlosarnau/NormalEngine/blob/65c44c9a1c9792ce431bf42b0b7bfed090c56f79/docs/6.jpg"> <br />
+
+
+
 - Inspector --> Change your objects properties and else.
+
+<img width="232" height="558" src="https://github.com/carlosarnau/NormalEngine/blob/807aff33e11c39a86fd219652b100eb42b777834/docs/10.jpg"> <br />
+
+
+
+- UI Editor --> Create and Edit the GUI for your game. (Not working propertly!)
+
+<img width="232" height="558" src="https://github.com/carlosarnau/NormalEngine/blob/807aff33e11c39a86fd219652b100eb42b777834/docs/10.jpg"> <br />
+
 
 <br>
 

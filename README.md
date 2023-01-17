@@ -65,7 +65,7 @@ The engine consists of a menu bar, located in the upper part of the screen, wher
 
 - Inspector --> Change your objects properties and else.
 
-<img width="232" height="558" src="https://github.com/carlosarnau/NormalEngine/blob/807aff33e11c39a86fd219652b100eb42b777834/docs/10.jpg"> <br />
+<img width="232" height="558" src="https://github.com/carlosarnau/NormalEngine/blob/843474ecc1456640f10014719910bc1fbd3f48b3/docs/8.jpg"> <br />
 
 
 
